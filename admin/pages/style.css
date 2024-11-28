@@ -1,0 +1,114 @@
+#kt_app_header_container {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.table-container {
+    margin: 0 50px 0;
+    border: 2px solid #eceaff;
+    border-radius: 10px;
+}
+.table-container table {
+    padding: 20px;
+}
+
+.table-container .table-style th{
+    border-bottom: 2px solid #ececec41;
+    font-weight: 500;
+    text-align: left;
+}
+
+table .dt-type-numeric span{
+    text-align: left;
+    justify-content: start;
+}
+
+.table-container .table-style td {
+    border-bottom: 1px solid #eceaff;
+}
+.label-container {
+    border-bottom: 1px solid #eceaff;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;     
+}
+#example_pagination .active {
+    background: #18c454;
+}
+
+.dt-info {
+    margin: 0px 20px 20px;
+}
+.dt-search {
+    margin: 1px 20px -20px;
+}
+
+.dt-length {
+    margin: 10px 20px -20px;
+}
+
+.dt-paging {
+    margin: 0px 20px 20px;
+    padding-right: 30px;
+}
+
+
+.row {
+    margin: 0px 20px 20px;
+    padding: 20px 20px 0;
+}
+
+.pagination > li > a
+{
+background-color: white;
+color: #18c454;
+}
+
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #18c454 !Important;
+    border: solid 1px #18c454 !Important;
+}
+
+.pagination > .page-item > a:hover
+{
+    background-color: #b8b8b81c !Important;
+    color: #18c454 !Important;
+}
+.pagination > .active > a:hover
+{
+background-color: #18c4542a !Important;
+border: solid 1px #41814c;
+}
+.pagination > .previous > a:hover i
+{
+    color: #18c454 !Important;
+}
+
+.dataTables_length .example_length option {
+    color: #18c454;
+}
+
+
+@media (max-width:770px) {
+    .dt-search {
+       margin: 30px 0 -20px;
+    }
+    
+    .dt-paging {
+        padding-bottom: 20px;
+    }
+    
+}
+
