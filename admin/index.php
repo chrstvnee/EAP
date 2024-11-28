@@ -94,8 +94,7 @@
 							</div>
 							<!--end::Toolbar-->
 							<!--begin::Content-->
-							<?php include"pages/student.php"?>
-							<?php include"pages/faculty.php"?>
+						
 								<!--end::Content container-->
 							</div>
 							<!--end::Content-->
