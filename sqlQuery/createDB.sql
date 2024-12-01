@@ -1,3 +1,5 @@
+-- Copy paste this code in phpMyAdmin SQL to create the database and insert test values
+
 -- Step 1: Create the Database
 CREATE DATABASE StaffManagement;
 
