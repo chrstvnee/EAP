@@ -11,7 +11,7 @@
                     <!--begin::Info-->
                     <div class="d-flex align-items-center">
                         <!--begin::Amount-->
-                        <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">999</span>
+                        <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">10</span>
                         <!--end::Amount-->
                     </div>
                     <!--end::Info-->
@@ -41,7 +41,7 @@
                         <div class="text-gray-500 flex-grow-1 me-4">Department A</div>
                         <!--end::Label-->
                         <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end">999</div>
+                        <div class="fw-bolder text-gray-700 text-xxl-end">2</div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Label-->
@@ -54,7 +54,7 @@
                         <div class="text-gray-500 flex-grow-1 me-4">Department B</div>
                         <!--end::Label-->
                         <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end">999</div>
+                        <div class="fw-bolder text-gray-700 text-xxl-end">2</div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Label-->
@@ -67,7 +67,7 @@
                         <div class="text-gray-500 flex-grow-1 me-4">Others</div>
                         <!--end::Label-->
                         <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end">999</div>
+                        <div class="fw-bolder text-gray-700 text-xxl-end">6</div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Label-->
@@ -93,7 +93,7 @@
                         <span class="fs-4 fw-semibold text-gray-500 me-1 align-self-start"></span>
                         <!--end::Currency-->
                         <!--begin::Amount-->
-                        <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">999</span>
+                        <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">10</span>
                         <!--end::Amount-->
                     </div>
                     <!--end::Info-->
@@ -123,7 +123,7 @@
                         <div class="text-gray-500 flex-grow-1 me-4">Department A</div>
                         <!--end::Label-->
                         <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end">1</div>
+                        <div class="fw-bolder text-gray-700 text-xxl-end">2</div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Label-->
@@ -149,7 +149,7 @@
                         <div class="text-gray-500 flex-grow-1 me-4">Others</div>
                         <!--end::Label-->
                         <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end">3</div>
+                        <div class="fw-bolder text-gray-700 text-xxl-end">6</div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Label-->

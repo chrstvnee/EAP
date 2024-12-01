@@ -46,13 +46,12 @@
 							</div>
 						</div>
 
-						<span class="menu-link">
+						<a href="dashboard/index.php" class="menu-link">
 							<span class="menu-icon">
-								<i class="fa-regular fa-house fs-1"></i>
-
+								<i class="fa-regular fa-user fs-1"></i>
 							</span>
 							<span class="menu-title">Home</span>
-						</span>
+						</a>
 
 						<div class="menu-item pt-5">
 							<div class="menu-content">
@@ -72,7 +71,7 @@
 									<span class="path3"></span>
 									</i>
 								</span>
-								<span class="menu-title">Notifications</span>
+								<span class="menu-title">Notifications (WIP)</span>
 								<span class="menu-arrow"></span>
 							</span>
 							<!--end:Menu link-->
@@ -89,23 +88,17 @@
 									</a>
 									<!--end:Menu link-->
 								</div>
-
-
-
 							</div>
 						</div>
 
-
-
-						<span class="menu-link">
-							<span class="menu-icon">
-								<i class="fa-regular fa-user fs-1"></i>
-							</span>
-							<span class="menu-title">Faculties</span>
-						</span>
-
-
 						<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
+							<a href="faculty/index.php" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa-regular fa-user fs-1"></i>
+								</span>
+								<span class="menu-title">Faculties</span>
+							</a>
+
 							<!--begin:Menu link-->
 							<span class="menu-link">
 								<span class="menu-icon">
@@ -114,7 +107,7 @@
 									<span class="path2"></span>
 									</i>
 								</span>
-								<span class="menu-title">Units</span>
+								<span class="menu-title">Units (WIP)</span>
 
 							</span>
 							<!-- BEGIN -->
@@ -124,7 +117,7 @@
 									<span class="menu-icon">
 										<i class="fa-regular fa-ballot-check fs-1"></i>
 									</span>
-									<span class="menu-title">Evaluation</span>
+									<span class="menu-title">Evaluation (WIP)</span>
 								</span>
 								<!--end:Menu link-->
 
@@ -137,7 +130,7 @@
 											<span class="path2"></span>
 											</i>
 										</span>
-										<span class="menu-title">Approval</span>
+										<span class="menu-title">Approval (WIP)</span>
 
 									</span>
 									<!--end:Menu link-->
@@ -157,7 +150,7 @@
 												<span class="path3"></span>
 												</i>
 											</span>
-											<span class="menu-title">Calendar</span>
+											<span class="menu-title">Calendar (WIP)</span>
 
 										</span>
 										<!--end:Menu link-->
@@ -175,7 +168,7 @@
 													<span class="path3"></span>
 													</i>
 												</span>
-												<span class="menu-title">Messages</span>
+												<span class="menu-title">Messages (WIP)</span>
 											</span>
 											<br>&nbsp;&nbsp;
 											<br>&nbsp;&nbsp;
