@@ -139,7 +139,7 @@ $result = $conn->query($sql);
 												<th>Department</th>
 												<th>Role</th>
 												<th>Contract</th>
-												<th>Date</th>
+												<th>Start Date</th>
 											</tr>
 										</thead>
 										<tbody>
