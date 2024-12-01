@@ -124,7 +124,7 @@ $result = $conn->query($sql);
 						<!--end::Toolbar-->
 						<!--begin::Content container-->
 						<div>
-							<h1>Staff List</h1>
+							<h1>FACULTIES</h1>
 							<h6>Manage the team members and their account here.</h6>
 						</div>
 						<div id="kt_app_content_container" class="app-container container-xxl">
