@@ -130,7 +130,7 @@ $result = $conn->query($sql);
 						<div id="kt_app_content_container" class="app-container container-xxl">
 							<div class="card">
 								<div class="table-responsive">
-									<table class="table">
+									<table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
 										<thead>
 											<tr class="fw-bold fs-6 text-gray-800">
 												<th>ID</th>
@@ -147,7 +147,7 @@ $result = $conn->query($sql);
 											if ($result->num_rows > 0) {
 												// Output data for each row
 												while ($row = $result->fetch_assoc()) {
-													echo "<tr>";
+													echo '<tr class=" fs-6 text-gray-800">';
 													echo "<td>" . $row['ID'] . "</td>";
 													echo "<td>" . $row['Name'] . "</td>";
 													echo "<td>" . $row['Email'] . "</td>";
@@ -155,6 +155,28 @@ $result = $conn->query($sql);
 													echo "<td>" . $row['Role'] . "</td>";
 													echo "<td>" . $row['Contract'] . "</td>";
 													echo "<td>" . $row['Date'] . "</td>";
+													echo '<td>
+																<div class="">
+																	<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																		<i class="ki-duotone ki-pencil fs-2">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</a>
+																	<form method="POST" action="faculty/delete.php" style="display:inline;">
+																		<input type="hidden" name="id" value="' . $row['ID'] . '">
+																		<button type="submit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+																			<i class="ki-duotone ki-trash fs-2">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</button>
+																	</form>
+																</div>
+															</td>';
 													echo "</tr>";
 												}
 											} else {
