@@ -229,38 +229,37 @@ $result = $conn->query($sql);
 				</div>
 				<!--end::Modal header-->
 				<!--begin::Form-->
-				<form id="kt_modal_edit_form" class="form" action="#">
+				<form id="kt_modal_edit_form" class="form" method="POST" action="faculty/edit.php">
 					<!--begin::Modal body-->
 					<div class="modal-body py-10 px-lg-17">
 						<!--begin::Scroll-->
-						<form id="editForm" method="POST" action="faculty/edit.php">
-							<input type="hidden" id="editId" name="id">
-							<div class="mb-3">
-								<label for="editName" class="form-label">Name</label>
-								<input type="text" class="form-control" id="editName" name="name" required>
-							</div>
-							<div class="mb-3">
-								<label for="editEmail" class="form-label">Email</label>
-								<input type="email" class="form-control" id="editEmail" name="email" required>
-							</div>
-							<div class="mb-3">
-								<label for="editDepartment" class="form-label">Department</label>
-								<input type="text" class="form-control" id="editDepartment" name="department" required>
-							</div>
-							<div class="mb-3">
-								<label for="editRole" class="form-label">Role</label>
-								<input type="text" class="form-control" id="editRole" name="role" required>
-							</div>
-							<div class="mb-3">
-								<label for="editContract" class="form-label">Contract</label>
-								<input type="text" class="form-control" id="editContract" name="contract" required>
-							</div>
-							<div class="mb-3">
-								<label for="editDate" class="form-label">Date</label>
-								<input type="date" class="form-control" id="editDate" name="date" required>
-							</div>
-							<button type="submit" class="btn btn-primary">Save changes</button>
-						</form>
+						<input type="hidden" id="editId" name="id">
+						<div class="mb-3">
+							<label for="editName" class="form-label">Name</label>
+							<input type="text" class="form-control" id="editName" name="name" required>
+						</div>
+						<div class="mb-3">
+							<label for="editEmail" class="form-label">Email</label>
+							<input type="email" class="form-control" id="editEmail" name="email" required>
+						</div>
+						<div class="mb-3">
+							<label for="editDepartment" class="form-label">Department</label>
+							<input type="text" class="form-control" id="editDepartment" name="department" required>
+						</div>
+						<div class="mb-3">
+							<label for="editRole" class="form-label">Role</label>
+							<input type="text" class="form-control" id="editRole" name="role" required>
+						</div>
+						<div class="mb-3">
+							<label for="editContract" class="form-label">Contract</label>
+							<input type="text" class="form-control" id="editContract" name="contract" required>
+						</div>
+						<div class="mb-3">
+							<label for="editDate" class="form-label">Date</label>
+							<input type="date" class="form-control" id="editDate" name="date" required>
+						</div>
+						<button type="submit" class="btn btn-primary">Save changes</button>
+
 						<!--end::Scroll-->
 					</div>
 					<!--end::Modal body-->
@@ -5234,26 +5233,26 @@ $result = $conn->query($sql);
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var editButtons = document.querySelectorAll('.edit-btn');
-        editButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var id = this.getAttribute('data-id');
-                var name = this.getAttribute('data-name');
-                var email = this.getAttribute('data-email');
-                var department = this.getAttribute('data-department');
-                var role = this.getAttribute('data-role');
-                var contract = this.getAttribute('data-contract');
-                var date = this.getAttribute('data-date');
+	document.addEventListener('DOMContentLoaded', function () {
+		var editButtons = document.querySelectorAll('.edit-btn');
+		editButtons.forEach(function (button) {
+			button.addEventListener('click', function () {
+				var id = this.getAttribute('data-id');
+				var name = this.getAttribute('data-name');
+				var email = this.getAttribute('data-email');
+				var department = this.getAttribute('data-department');
+				var role = this.getAttribute('data-role');
+				var contract = this.getAttribute('data-contract');
+				var date = this.getAttribute('data-date');
 
-                document.getElementById('editId').value = id;
-                document.getElementById('editName').value = name;
-                document.getElementById('editEmail').value = email;
-                document.getElementById('editDepartment').value = department;
-                document.getElementById('editRole').value = role;
-                document.getElementById('editContract').value = contract;
-                document.getElementById('editDate').value = date;
-            });
-        });
-    });
+				document.getElementById('editId').value = id;
+				document.getElementById('editName').value = name;
+				document.getElementById('editEmail').value = email;
+				document.getElementById('editDepartment').value = department;
+				document.getElementById('editRole').value = role;
+				document.getElementById('editContract').value = contract;
+				document.getElementById('editDate').value = date;
+			});
+		});
+	});
 </script>

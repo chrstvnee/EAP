@@ -40,6 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $conn->close();
 
 // Redirect back to the main page
-header("Location: faculty/index.php");
+header("Location: index.php");
 exit();
 ?>
