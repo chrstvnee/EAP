@@ -46,56 +46,41 @@
 							</div>
 						</div>
 
-						<a href="" class="menu-link">
+						<a href="faculty/index.php" class="menu-link"> <!-- WORKING BUTTON / HREF LINK INTO ITSELF-->
 							<span class="menu-icon">
 								<i class="fa-duotone fa-solid fa-grid-2 fs-1"></i>
 							</span>
 							<span class="menu-title">Home</span>
 						</a>
 
-						<div class="menu-item pt-5">
-							<div class="menu-content">
-								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Employees</div>
-							</div>
-						</div>
-
-						<a href="faculty/index.php" class="menu-link">
+						<!-- <a href="dashboard/index.php" class="menu-link">
 							<span class="menu-icon">
-								<i class="fa-duotone fa-solid fa-users fs-1"></i>
+								<i class="fa-regular fa-house fs-1"></i>
 							</span>
-							<span class="menu-title">Faculties</span>
-						</a>
+							<span class="menu-title">Home</span>
+						</a> -->
 
 						<div class="menu-item pt-5">
 							<div class="menu-content">
 								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Evaluation</div>
+								<div class="menu-heading fw-bold text-uppercase fs-7">Check</div>
 							</div>
 						</div>
-
-						<!-- BEGIN -->
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<!--begin:Menu link-->
-								<span class="menu-link">
-									<span class="menu-icon">
-										<i class="fa-duotone fa-solid fa-ballot-check fs-1"></i>
-									</span>
-									<span class="menu-title">Appraisal</span>
-								</span>
-								<!--end:Menu link-->
 
 						<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
-							<!--begin:Menu link-->
-							<span class="menu-link">
+							<a href="faculty/index.php" class="menu-link">
 								<span class="menu-icon">
-									<i class="fa-duotone fa-solid fa-award fs-1"></i>
-									<span class="path1"></span>
-									<span class="path2"></span>
-									</i>
+									<i class="fa-duotone fa-solid fa-user fs-1"></i>
 								</span>
-								<span class="menu-title">Credentials</span>
-							</span>
+								<span class="menu-title">Profile</span>
+							</a>
+
+						<div class="menu-item pt-5">
+							<div class="menu-content">
+								<!-- BEGIN TITLE -->
+								<div class="menu-heading fw-bold text-uppercase fs-7">Assigned</div>
+							</div>
+						</div>
 
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
 							<!--begin:Menu link-->
@@ -108,11 +93,11 @@
 								</span>
 								<span class="menu-title">Units</span>
 							</span>
-
-						<div class="menu-item pt-5">
+							
+							<div class="menu-item pt-5">
 							<div class="menu-content">
 								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Approval</div>
+								<div class="menu-heading fw-bold text-uppercase fs-7">Approve</div>
 							</div>
 						</div>
 
@@ -138,31 +123,29 @@
 						</div>
 									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
-										<span class="menu-link">
+									<span class="menu-link">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-solid fa-calendar fs-1"></i>
-												<span class="path1"></span>
-												<span class="path2"></span>
-												<span class="path3"></span>
-												</i>
-											</span>
-											<span class="menu-title">Calendar</span>
+											<i class="fa-duotone fa-solid fa-calendar fs-1"></i>
+											<span class="path1"></span>
+											<span class="path2"></span>
+											<span class="path3"></span>
+										</i>
+									</span>
+							<span class="menu-title">Calendar</span>
+						</span>
 
-										</span>
-										<!--end:Menu link-->
-
-										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-											<!--begin:Menu link-->
-											<span class="menu-link">
-												<span class="menu-icon">
-													<i class="fa-duotone fa-solid fa-messages fs-1"></i>
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-													</i>
-												</span>
-												<span class="menu-title">Messages</span>
-											</span>
+						<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<!--begin:Menu link-->
+							<span class="menu-link">
+								<span class="menu-icon">
+										<i class="fa-duotone fa-solid fa-messages fs-1"></i>
+										<span class="path1"></span>
+										<span class="path2"></span>
+										<span class="path3"></span>
+									</i>
+								</span>
+							<span class="menu-title">Messages</span>
+						</span>
 											<br>&nbsp;&nbsp;
 											<br>&nbsp;&nbsp;
 											<br>&nbsp;&nbsp;
@@ -174,7 +157,7 @@
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
-														<i class="fa-duotone fa-light fa-gear fs-1"></i>
+														<i class="fa-regular fa-gear fs-1"></i>
 														<span class="path1"></span>
 														<span class="path2"></span>
 														<span class="path3"></span>
@@ -186,7 +169,8 @@
 													<!--begin:Menu link-->
 													<span class="menu-link">
 														<span class="menu-icon">
-															<i class="fa-regular fa-arrow-right-from-bracket fs-1" style="color: #ef0b0b;"></i>
+															<i class="fa-regular fa-arrow-right-from-bracket fs-1"
+																style="color: #ee535b;"></i>
 															<span class="path1"></span>
 															<span class="path2"></span>
 															<span class="path3"></span>

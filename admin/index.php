@@ -123,46 +123,51 @@ $result = $conn->query($sql);
 						</div>
 						<!--end::Toolbar-->
 						<!--begin::Content container-->
-						<div>
-							<h1>DASHBOARD</h1>
-							<h6>See all the overview analytics.</h6>
-						</div>
-						<div id="kt_app_content_container" class="app-container container-xxl">
-							<div class="card">
-								<div class="table-responsive">
-									<table class="table">
-										<thead>
-											<tr class="fw-bold fs-6 text-gray-800">
-												<th style="w-40px" >ID</th>
-												<th>Name</th>
-												<th>Email</th>
-												<th>Department</th>
-												<th>Role</th>
-												<th>Contract</th>
-												<th>Start Date</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
-											if ($result->num_rows > 0) {
-												// Output data for each row
-												while ($row = $result->fetch_assoc()) {
-													echo "<tr>";
-													echo "<td>" . $row['ID'] . "</td>";
-													echo "<td>" . $row['Name'] . "</td>";
-													echo "<td>" . $row['Email'] . "</td>";
-													echo "<td>" . $row['Department'] . "</td>";
-													echo "<td>" . $row['Role'] . "</td>";
-													echo "<td>" . $row['Contract'] . "</td>";
-													echo "<td>" . $row['Date'] . "</td>";
-													echo "</tr>";
+						<div id="kt_app_content_container" class="app-content flex-column-fluid">
+							<div id="kt_app_content_container" class="app-container container-fluid">
+								<div class="row">
+									<h1>DASHBOARD</h1>
+									<h6>See all the overview analytics.</h6>
+								</div>
+								<!--begin::Row-->
+								<?php include "part/totalEmployeeCard.php" ?>
+								<!--end::Row-->
+								<div class="card">
+									<div class="table-responsive">
+										<table class="table">
+											<thead>
+												<tr class="fw-bold fs-6 text-gray-800">
+													<th>ID</th>
+													<th>Name</th>
+													<th>Email</th>
+													<th>Department</th>
+													<th>Role</th>
+													<th>Contract</th>
+													<th>Start Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+												if ($result->num_rows > 0) {
+													// Output data for each row
+													while ($row = $result->fetch_assoc()) {
+														echo "<tr>";
+														echo "<td>" . $row['ID'] . "</td>";
+														echo "<td>" . $row['Name'] . "</td>";
+														echo "<td>" . $row['Email'] . "</td>";
+														echo "<td>" . $row['Department'] . "</td>";
+														echo "<td>" . $row['Role'] . "</td>";
+														echo "<td>" . $row['Contract'] . "</td>";
+														echo "<td>" . $row['Date'] . "</td>";
+														echo "</tr>";
+													}
+												} else {
+													echo "<tr><td colspan='7'>No data found</td></tr>";
 												}
-											} else {
-												echo "<tr><td colspan='7'>No data found</td></tr>";
-											}
-											?>
-										</tbody>
-									</table>
+												?>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
