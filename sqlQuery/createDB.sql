@@ -20,10 +20,28 @@ CREATE TABLE Staff (
     Date DATE
 );
 
+CREATE TABLE Points(
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Staff_ID INT,
+    Doctorate_Degree BOOLEAN,
+    Masters_Degree BOOLEAN,
+    Bachelors_Degree BOOLEAN,
+    Special_Course BOOLEAN,
+    License_Examination BOOLEAN,
+    Additional_Units INT,
+    Service_Years_Other_School INT,
+    Service_Years_Asiatech INT,
+    Service_Years_Industry INT,
+    Service_Years_Role_A INT,
+    Service_Years_B INT,
+
+    FOREIGN KEY (Staff_ID) REFERENCES Staff(ID)
+)
+
 -- Insert test values
 INSERT INTO Staff (Image_URL, Name, Email, Department, Role, Contract, Date)
-VALUES
-    ('https://example.com/image1.jpg', 'John Doe', 'john.doe@example.com', 'CBHTM/BSBMA', 'Head Dean', 'Full Time', '2020-06-15'),
+VALUES(
+('https://example.com/image1.jpg', 'John Doe', 'john.doe@example.com', 'CBHTM/BSBMA', 'Head Dean', 'Full Time', '2020-06-15'),
 ('https://example.com/image2.jpg', 'Jane Smith', 'jane.smith@example.com', 'CEITE', 'Faculty', 'Part Time', '2018-08-25'),
 ('https://example.com/image3.jpg', 'Mark Johnson', 'mark.johnson@example.com', 'ASCERT', 'Faculty', 'Full Time', '2021-09-12'),
 ('https://example.com/image4.jpg', 'Emily Davis', 'emily.davis@example.com', 'BASIC ED', 'Head Dean', 'Full Time', '2015-03-07'),
@@ -122,4 +140,4 @@ VALUES
 ('https://example.com/image97.jpg', 'Linda Harris', 'linda.harris@example.com', 'ASCERT', 'Faculty', 'Full Time', '2015-09-08'),
 ('https://example.com/image98.jpg', 'Mark Parker', 'mark.parker@example.com', 'BASIC ED', 'Faculty', 'Part Time', '2017-06-19'),
 ('https://example.com/image99.jpg', 'Deborah Lewis', 'deborah.lewis@example.com', 'CRIMINAL INJUSTICE', 'Head Dean', 'Full Time', '2012-08-11'),
-('https://example.com/image100.jpg', 'Gary Mitchell', 'gary.mitchell@example.com', 'CBHTM/BSBMA', 'Faculty', 'Part Time', '2021-04-17');
+('https://example.com/image100.jpg', 'Gary Mitchell', 'gary.mitchell@example.com', 'CBHTM/BSBMA', 'Faculty', 'Part Time', '2021-04-17'));
