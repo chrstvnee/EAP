@@ -1,12 +1,13 @@
 -- Copy paste this code in phpMyAdmin SQL to create the database and insert test values
 
 -- Step 1: Create the Database
-CREATE DATABASE StaffManagement;
+CREATE DATABASE IF NOT EXISTS StaffManagement;
 
 -- Step 2: Use the Database
 USE StaffManagement;
 
-DROP TABLE IF EXISTS Staff
+DROP TABLE IF EXISTS Appraisal;
+DROP TABLE IF EXISTS Staff;
 
 -- Main table
 CREATE TABLE Staff (
@@ -23,21 +24,18 @@ CREATE TABLE Staff (
 CREATE TABLE Appraisal(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Staff_ID INT,
-    Total INT,
-
+    Total INT NOT NULL DEFAULT 0,
     Doctorate_Degree BOOLEAN,
     Masters_Degree BOOLEAN,
     Bachelors_Degree BOOLEAN,
     Special_Course BOOLEAN,
     License_Examination BOOLEAN,
-    Additional_Units UNSIGNED INT NOT NULL DEFAULT 0,
-
-    Service_Years_Other_School UNSIGNED BOOLEAN,
-    Service_Years_Asiatech UNSIGNED BOOLEAN,
-    Service_Years_Industry UNSIGNED BOOLEAN,
-    Service_Years_Role_A UNSIGNED BOOLEAN
-    Service_Years_Role_B UNSIGNED BOOLEAN
-
+    Additional_Units  INT NOT NULL DEFAULT 0,
+    Service_Years_Other_School  BOOLEAN,
+    Service_Years_Asiatech  BOOLEAN,
+    Service_Years_Industry  BOOLEAN,
+    Service_Years_Role_A  BOOLEAN,
+    Service_Years_Role_B  BOOLEAN,
     Works_Original_Author BOOLEAN,
     Works_Co_Author BOOLEAN,
     Works_Reviewer BOOLEAN,
@@ -45,43 +43,34 @@ CREATE TABLE Appraisal(
     Works_Compiler BOOLEAN,
     Works_Encoder BOOLEAN,
     Works_Programmer BOOLEAN,
-
-    Paper_Publish_Count_International UNSIGNED BOOLEAN,
-    Paper_Publish_Count_National UNSIGNED BOOLEAN,
-    Paper_Publish_Count_Local UNSIGNED BOOLEAN,
-
+    Paper_Publish_Count_International  BOOLEAN,
+    Paper_Publish_Count_National  BOOLEAN,
+    Paper_Publish_Count_Local  BOOLEAN,
     Training_Course_Years_International BOOLEAN,
     Training_Course_Years_National BOOLEAN,
     Training_Course_Years_Local BOOLEAN,
-
     Resource_Person_International BOOLEAN,
     Resource_Person_National BOOLEAN,
     Resource_Person_Local BOOLEAN,
-
     Seminar_International BOOLEAN,
     Seminar_National BOOLEAN,
     Seminar_Local BOOLEAN,
-
     Membership_Learned_Society BOOLEAN,
     Membership_Professional_Organization BOOLEAN,
     Membership_Civic_Social_Economic_Organization BOOLEAN,
-
     Honors_Summa_Cum_Laude BOOLEAN,
     Honors_Cum_Laude BOOLEAN,
     Honors_Honorable_Mention BOOLEAN,
-
     Civic_Service_First_level BOOLEAN,
     Civic_Service_Second_level BOOLEAN,
     Civic_Service_Third_level BOOLEAN,
-
-    Performance_Rating INT,
-
+    Performance_Rating INT NOT NULL DEFAULT 0,
     FOREIGN KEY (Staff_ID) REFERENCES Staff(ID)
-)
+);
 
 -- Insert test values
 INSERT INTO Staff (Image_URL, Name, Email, Department, Role, Contract, Date)
-VALUES(
+VALUES
 ('https://example.com/image1.jpg', 'John Doe', 'john.doe@example.com', 'CBHTM/BSBMA', 'Head Dean', 'Full Time', '2020-06-15'),
 ('https://example.com/image2.jpg', 'Jane Smith', 'jane.smith@example.com', 'CEITE', 'Faculty', 'Part Time', '2018-08-25'),
 ('https://example.com/image3.jpg', 'Mark Johnson', 'mark.johnson@example.com', 'ASCERT', 'Faculty', 'Full Time', '2021-09-12'),
@@ -149,7 +138,6 @@ VALUES(
 ('https://example.com/image65.jpg', 'John Perry', 'john.perry@example.com', 'CBHTM/BSBMA', 'Faculty', 'Part Time', '2013-01-21'),
 ('https://example.com/image66.jpg', 'Patricia Cruz', 'patricia.cruz@example.com', 'CEITE', 'Faculty', 'Full Time', '2020-12-01'),
 ('https://example.com/image67.jpg', 'Rachel Morgan', 'rachel.morgan@example.com', 'ASCERT', 'Faculty', 'Full Time', '2021-09-15'),
-('https://example.com/image68.jpg', 'Laura Williams', 'laura.williams@example.com', 'BASIC ED', 'Faculty', 'Part Time', '2020-06-03'),
 ('https://example.com/image69.jpg', 'James Perry', 'james.perry@example.com', 'CRIMINAL INJUSTICE', 'Head Dean', 'Full Time', '2016-12-03'),
 ('https://example.com/image70.jpg', 'Linda Rogers', 'linda.rogers@example.com', 'CBHTM/BSBMA', 'Faculty', 'Part Time', '2011-11-02'),
 ('https://example.com/image71.jpg', 'William Foster', 'william.foster@example.com', 'CEITE', 'Faculty', 'Full Time', '2019-03-15'),
@@ -181,4 +169,4 @@ VALUES(
 ('https://example.com/image97.jpg', 'Linda Harris', 'linda.harris@example.com', 'ASCERT', 'Faculty', 'Full Time', '2015-09-08'),
 ('https://example.com/image98.jpg', 'Mark Parker', 'mark.parker@example.com', 'BASIC ED', 'Faculty', 'Part Time', '2017-06-19'),
 ('https://example.com/image99.jpg', 'Deborah Lewis', 'deborah.lewis@example.com', 'CRIMINAL INJUSTICE', 'Head Dean', 'Full Time', '2012-08-11'),
-('https://example.com/image100.jpg', 'Gary Mitchell', 'gary.mitchell@example.com', 'CBHTM/BSBMA', 'Faculty', 'Part Time', '2021-04-17'));
+('https://example.com/image100.jpg', 'Gary Mitchell', 'gary.mitchell@example.com', 'CBHTM/BSBMA', 'Faculty', 'Part Time', '2021-04-17');
