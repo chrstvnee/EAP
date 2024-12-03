@@ -172,7 +172,7 @@ $result = $conn->query($sql);
 																			<span class="path2"></span>
 																		</i>
 																	</a>
-																	<form method="POST" action="faculty/delete.php" style="display:inline;">
+																	<form method="POST" action="admin/faculty/delete.php" style="display:inline;">
 																		<input type="hidden" name="id" value="' . $row['ID'] . '">
 																		<button type="submit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
 																			<i class="ki-duotone ki-trash fs-2">
@@ -238,7 +238,7 @@ $result = $conn->query($sql);
 				</div>
 				<!--end::Modal header-->
 				<!--begin::Form-->
-				<form id="kt_modal_edit_form" class="form" method="POST" action="faculty/edit.php">
+				<form id="kt_modal_edit_form" class="form" method="POST" action="admin/faculty/edit.php">
 					<!--begin::Modal body-->
 					<div class="modal-body py-10 px-lg-17">
 						<!--begin::Scroll-->

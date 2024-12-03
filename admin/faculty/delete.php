@@ -34,6 +34,6 @@ if (isset($_POST['id'])) {
 $conn->close();
 
 // Redirect back to the main page
-header("Location: index.php");
+header("Location: http://localhost/EAP/admin/faculties.php");
 exit();
 ?>

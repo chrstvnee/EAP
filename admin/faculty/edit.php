@@ -40,6 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $conn->close();
 
 // Redirect back to the main page
-header("Location: index.php");
+header("Location: http://localhost/EAP/admin/faculties.php");
 exit();
 ?>
