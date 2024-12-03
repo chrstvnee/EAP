@@ -60,12 +60,6 @@ $result = $conn->query($sql);
 	<script src="script.js"></script>
 	<!--end::Global Stylesheets Bundle-->
 	<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
-	<style>
-		#faculties {
-			text-align: center;
-		}
-		
-	</style>
 
 </head>
 <!--end::Head-->
@@ -129,71 +123,51 @@ $result = $conn->query($sql);
 						</div>
 						<!--end::Toolbar-->
 						<!--begin::Content container-->
-						<div style="border-radius: 30px; padding-top: 20px; padding-bottom: 20px; scroll-padding-left: 20px; scroll-padding-right: 20px; padding-right: -110px padding-left: -100px;"class="card">
-						<div>
-							<h1 style="padding-left: 90px">FACULTIES</h1> 
-							<h6 style="padding-left: 90px">Manage the team members and their account here.</h6>
-							<!-- <button class="button button1">Green</button> -->
-						</div>
-						<div id="kt_app_content_container" class="app-container container-xxl">
-							<div class="card">
-								<div class="table-responsive">
-									<table id="faculties" style="width: 100%;" class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-										<thead>
-											<tr class="fw-bold fs-6 text-gray-800">
-												<th style="padding-left: 30px;">ID</th>
-												<th>Name</th>
-												<th>Email</th>
-												<th>Department</th>
-												<th>Role</th>
-												<th>Contract</th>
-												<th>Start Date</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
-											if ($result->num_rows > 0) {
-												// Output data for each row
-												while ($row = $result->fetch_assoc()) {
-													echo '<tr class=" fs-6 text-gray-800">';
-													echo "<td>" . $row['ID'] . "</td>";
-													echo "<td>" . $row['Name'] . "</td>";
-													echo "<td>" . $row['Email'] . "</td>";
-													echo "<td>" . $row['Department'] . "</td>";
-													echo "<td>" . $row['Role'] . "</td>";
-													echo "<td>" . $row['Contract'] . "</td>";
-													echo "<td>" . $row['Date'] . "</td>";
-													echo '<td>
-																<div class="">									
-																	<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 edit-btn" data-bs-toggle="modal" data-bs-target="#kt_modal_edit" data-id="' . $row['ID'] . '" data-name="' . $row['Name'] . '" data-email="' . $row['Email'] . '" data-department="' . $row['Department'] . '" data-role="' . $row['Role'] . '" data-contract="' . $row['Contract'] . '" data-date="' . $row['Date'] . '">
-																		<i class="ki-duotone ki-pencil fs-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</a>
-																	<form method="POST" action="faculty/delete.php" style="display:inline;">
-																		<input type="hidden" name="id" value="' . $row['ID'] . '">
-																		<button type="submit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-																			<i class="ki-duotone ki-trash fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																				<span class="path3"></span>
-																				<span class="path4"></span>
-																				<span class="path5"></span>
-																			</i>
-																		</button>
-																	</form>
-																</div>
-															</td>';
-													echo "</tr>";
+						<div id="kt_app_content_container" class="app-content flex-column-fluid">
+							<div id="kt_app_content_container" class="app-container container-fluid">
+								<div class="row">
+									<h1>DASHBOARD</h1>
+									<h6>See all the overview analytics.</h6>
+								</div>
+								<!--begin::Row-->
+								<?php include "part/totalEmployeeCard.php" ?>
+								<!--end::Row-->
+								<div class="card">
+									<div class="table-responsive">
+										<table class="table">
+											<thead>
+												<tr class="fw-bold fs-6 text-gray-800">
+													<th>ID</th>
+													<th>Name</th>
+													<th>Email</th>
+													<th>Department</th>
+													<th>Role</th>
+													<th>Contract</th>
+													<th>Start Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+												if ($result->num_rows > 0) {
+													// Output data for each row
+													while ($row = $result->fetch_assoc()) {
+														echo "<tr>";
+														echo "<td>" . $row['ID'] . "</td>";
+														echo "<td>" . $row['Name'] . "</td>";
+														echo "<td>" . $row['Email'] . "</td>";
+														echo "<td>" . $row['Department'] . "</td>";
+														echo "<td>" . $row['Role'] . "</td>";
+														echo "<td>" . $row['Contract'] . "</td>";
+														echo "<td>" . $row['Date'] . "</td>";
+														echo "</tr>";
+													}
+												} else {
+													echo "<tr><td colspan='7'>No data found</td></tr>";
 												}
-											} else {
-												echo "<tr><td colspan='7'>No data found</td></tr>";
-											}
-											?>
-										</tbody>
-									</table>
+												?>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -216,70 +190,6 @@ $result = $conn->query($sql);
 		<!--end::Page-->
 	</div>
 	<!--end::App-->
-	<!--begin::Modal - Create Api Key-->
-	<div class="modal fade" id="kt_modal_edit" tabindex="-1" aria-hidden="true">
-		<!--begin::Modal dialog-->
-		<div class="modal-dialog modal-dialog-centered mw-650px">
-			<!--begin::Modal content-->
-			<div class="modal-content">
-				<!--begin::Modal header-->
-				<div class="modal-header" id="kt_modal_edit_header">
-					<!--begin::Modal title-->
-					<h2>Edit Record</h2>
-					<!--end::Modal title-->
-					<!--begin::Close-->
-					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-						<i class="ki-duotone ki-cross fs-1">
-							<span class="path1"></span>
-							<span class="path2"></span>
-						</i>
-					</div>
-					<!--end::Close-->
-				</div>
-				<!--end::Modal header-->
-				<!--begin::Form-->
-				<form id="kt_modal_edit_form" class="form" method="POST" action="faculty/edit.php">
-					<!--begin::Modal body-->
-					<div class="modal-body py-10 px-lg-17">
-						<!--begin::Scroll-->
-						<input type="hidden" id="editId" name="id">
-						<div class="mb-3">
-							<label for="editName" class="form-label">Name</label>
-							<input type="text" class="form-control" id="editName" name="name" required>
-						</div>
-						<div class="mb-3">
-							<label for="editEmail" class="form-label">Email</label>
-							<input type="email" class="form-control" id="editEmail" name="email" required>
-						</div>
-						<div class="mb-3">
-							<label for="editDepartment" class="form-label">Department</label>
-							<input type="text" class="form-control" id="editDepartment" name="department" required>
-						</div>
-						<div class="mb-3">
-							<label for="editRole" class="form-label">Role</label>
-							<input type="text" class="form-control" id="editRole" name="role" required>
-						</div>
-						<div class="mb-3">
-							<label for="editContract" class="form-label">Contract</label>
-							<input type="text" class="form-control" id="editContract" name="contract" required>
-						</div>
-						<div class="mb-3">
-							<label for="editDate" class="form-label">Date</label>
-							<input type="date" class="form-control" id="editDate" name="date" required>
-						</div>
-						<button type="submit" class="btn btn-primary">Save changes</button>
-
-						<!--end::Scroll-->
-					</div>
-					<!--end::Modal body-->
-				</form>
-				<!--end::Form-->
-			</div>
-			<!--end::Modal content-->
-		</div>
-		<!--end::Modal dialog-->
-	</div>
-	<!--end::Modal - Create Api Key-->
 	<!--begin::Drawers-->
 	<!--begin::Activities drawer-->
 	<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities"
@@ -5240,28 +5150,3 @@ $result = $conn->query($sql);
 <!--end::Body-->
 
 </html>
-
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		var editButtons = document.querySelectorAll('.edit-btn');
-		editButtons.forEach(function (button) {
-			button.addEventListener('click', function () {
-				var id = this.getAttribute('data-id');
-				var name = this.getAttribute('data-name');
-				var email = this.getAttribute('data-email');
-				var department = this.getAttribute('data-department');
-				var role = this.getAttribute('data-role');
-				var contract = this.getAttribute('data-contract');
-				var date = this.getAttribute('data-date');
-
-				document.getElementById('editId').value = id;
-				document.getElementById('editName').value = name;
-				document.getElementById('editEmail').value = email;
-				document.getElementById('editDepartment').value = department;
-				document.getElementById('editRole').value = role;
-				document.getElementById('editContract').value = contract;
-				document.getElementById('editDate').value = date;
-			});
-		});
-	});
-</script>

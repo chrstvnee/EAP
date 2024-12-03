@@ -46,12 +46,12 @@
 							</div>
 						</div>
 
-						<span class="menu-link">
+						<a href="" class="menu-link">
 							<span class="menu-icon">
 								<i class="fa-duotone fa-solid fa-grid-2 fs-1"></i>
 							</span>
 							<span class="menu-title">Home</span>
-						</span>
+						</a>
 
 						<div class="menu-item pt-5">
 							<div class="menu-content">
@@ -60,12 +60,12 @@
 							</div>
 						</div>
 
-						<span class="menu-link">
+						<a href="faculty/index.php" class="menu-link">
 							<span class="menu-icon">
 								<i class="fa-duotone fa-solid fa-users fs-1"></i>
 							</span>
 							<span class="menu-title">Faculties</span>
-						</span>
+						</a>
 
 						<div class="menu-item pt-5">
 							<div class="menu-content">
@@ -150,7 +150,7 @@
 
 										</span>
 										<!--end:Menu link-->
-										
+
 										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 											<!--begin:Menu link-->
 											<span class="menu-link">

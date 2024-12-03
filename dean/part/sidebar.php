@@ -36,12 +36,12 @@
 							</div>
 						</div>
 
-						<span class="menu-link">
+						<a href="dean/index.php" class="menu-link">
 							<span class="menu-icon">
 								<i class="fa-duotone fa-solid fa-grid-2 fs-1"></i>
 							</span>
 							<span class="menu-title">Home</span>
-						</span>
+						</a>
 
 						<div class="menu-item pt-5">
 							<div class="menu-content">

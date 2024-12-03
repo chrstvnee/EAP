@@ -46,12 +46,12 @@
 							</div>
 						</div>
 
-						<span class="menu-link"> <!-- WORKING BUTTON / HREF LINK INTO ITSELF-->
+						<a href="faculty/index.php" class="menu-link">
 							<span class="menu-icon">
 								<i class="fa-duotone fa-solid fa-grid-2 fs-1"></i>
 							</span>
 							<span class="menu-title">Home</span>
-						</span>
+						</a>
 
 						<!-- <a href="dashboard/index.php" class="menu-link">
 							<span class="menu-icon">
