@@ -20,20 +20,61 @@ CREATE TABLE Staff (
     Date DATE
 );
 
-CREATE TABLE Points(
+CREATE TABLE Appraisal(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Staff_ID INT,
+    Total INT,
+
     Doctorate_Degree BOOLEAN,
     Masters_Degree BOOLEAN,
     Bachelors_Degree BOOLEAN,
     Special_Course BOOLEAN,
     License_Examination BOOLEAN,
-    Additional_Units INT,
-    Service_Years_Other_School INT,
-    Service_Years_Asiatech INT,
-    Service_Years_Industry INT,
-    Service_Years_Role_A INT,
-    Service_Years_B INT,
+    Additional_Units UNSIGNED INT NOT NULL DEFAULT 0,
+
+    Service_Years_Other_School UNSIGNED BOOLEAN,
+    Service_Years_Asiatech UNSIGNED BOOLEAN,
+    Service_Years_Industry UNSIGNED BOOLEAN,
+    Service_Years_Role_A UNSIGNED BOOLEAN
+    Service_Years_Role_B UNSIGNED BOOLEAN
+
+    Works_Original_Author BOOLEAN,
+    Works_Co_Author BOOLEAN,
+    Works_Reviewer BOOLEAN,
+    Works_Editor BOOLEAN,
+    Works_Compiler BOOLEAN,
+    Works_Encoder BOOLEAN,
+    Works_Programmer BOOLEAN,
+
+    Paper_Publish_Count_International UNSIGNED BOOLEAN,
+    Paper_Publish_Count_National UNSIGNED BOOLEAN,
+    Paper_Publish_Count_Local UNSIGNED BOOLEAN,
+
+    Training_Course_Years_International BOOLEAN,
+    Training_Course_Years_National BOOLEAN,
+    Training_Course_Years_Local BOOLEAN,
+
+    Resource_Person_International BOOLEAN,
+    Resource_Person_National BOOLEAN,
+    Resource_Person_Local BOOLEAN,
+
+    Seminar_International BOOLEAN,
+    Seminar_National BOOLEAN,
+    Seminar_Local BOOLEAN,
+
+    Membership_Learned_Society BOOLEAN,
+    Membership_Professional_Organization BOOLEAN,
+    Membership_Civic_Social_Economic_Organization BOOLEAN,
+
+    Honors_Summa_Cum_Laude BOOLEAN,
+    Honors_Cum_Laude BOOLEAN,
+    Honors_Honorable_Mention BOOLEAN,
+
+    Civic_Service_First_level BOOLEAN,
+    Civic_Service_Second_level BOOLEAN,
+    Civic_Service_Third_level BOOLEAN,
+
+    Performance_Rating INT,
 
     FOREIGN KEY (Staff_ID) REFERENCES Staff(ID)
 )
