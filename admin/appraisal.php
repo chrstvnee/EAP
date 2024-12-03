@@ -13,8 +13,13 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to fetch data
-$sql = "SELECT ID, Name, Email, Department, Role, Contract, Date FROM staff"; // Replace 'users' with your table name
+// SQL query to join staff and appraisal tables and get ID, Name, and total appraisals
+$sql = "
+SELECT s.ID, s.Name, a.Total
+FROM staff s
+JOIN appraisal a ON s.ID = a.staff_id;
+";
+
 $result = $conn->query($sql);
 ?>
 
@@ -157,7 +162,7 @@ $result = $conn->query($sql);
 													echo "<td>" . $row['Total'] . "</td>";
 													echo '<td>
 																<div class="">									
-																	<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 edit-btn" data-bs-toggle="modal" data-bs-target="#kt_modal_edit" data-id="' . $row['ID'] . '" data-name="' . $row['Name'] . '" data-email="' . $row['Email'] . '" data-department="' . $row['Department'] . '" data-role="' . $row['Role'] . '" data-contract="' . $row['Contract'] . '" data-date="' . $row['Date'] . '">
+																	<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 edit-btn" data-bs-toggle="modal" data-bs-target="#kt_modal_edit" data-id="' . $row['ID'] . '" data-name="' . $row['Name'] . '" data-email="' . $row['Total'] . '">
 																		<i class="ki-duotone ki-pencil fs-2">
 																			<span class="path1"></span>
 																			<span class="path2"></span>
