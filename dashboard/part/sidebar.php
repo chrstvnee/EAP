@@ -48,7 +48,7 @@
 
 						<a href="dashboard/index.php" class="menu-link">
 							<span class="menu-icon">
-								<i class="fa-regular fa-user fs-1"></i>
+								<i class="fa-regular fa-house fs-1"></i>
 							</span>
 							<span class="menu-title">Home</span>
 						</a>
