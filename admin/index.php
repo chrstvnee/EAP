@@ -123,8 +123,8 @@ $result = $conn->query($sql);
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content container-->
-                        <div id="kt_app_content_container" class="app-content flex-column-fluid">
-                            <div id="kt_app_content_container" class="app-container container-fluid">
+                        <div id="kt_app_content_container" class="app-container container-xxl">
+                            <div class="card">
                                 <div class="row">
                                     <h1>DASHBOARD</h1>
                                     <h6>See all the overview analytics.</h6>
