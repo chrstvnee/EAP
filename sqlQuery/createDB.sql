@@ -36,6 +36,7 @@ CREATE TABLE Appraisal(
     Service_Years_Industry  BOOLEAN NOT NULL DEFAULT 0,
     Service_Years_Role_A  BOOLEAN NOT NULL DEFAULT 0,
     Service_Years_Role_B  BOOLEAN NOT NULL DEFAULT 0,
+    Service_Years_Role_C  BOOLEAN NOT NULL DEFAULT 0,
     Works_Original_Author BOOLEAN NOT NULL DEFAULT 0,
     Works_Co_Author BOOLEAN NOT NULL DEFAULT 0,
     Works_Reviewer BOOLEAN NOT NULL DEFAULT 0,

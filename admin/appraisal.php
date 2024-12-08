@@ -5566,8 +5566,15 @@ $result = $conn->query($sql);
             if (checkbox.checked) {
                 selectedColumns.push(checkbox.id);
             }
-        });
+        });        
+        //TODO: get int values from the form
+
+        //TODO: create json kvp of keystring:intvalue
+
+        //TODO: limit the last performance int value to 5
         console.log('Selected columns:', selectedColumns);
         // You can send the selected columns to the server or handle them as needed
+
+        //TODO: update the total score when values are changed
     }
 </script>
