@@ -1,4 +1,5 @@
 <?php
+
 // Database connection details
 $host = "localhost"; // Change to your database host
 $username = "root"; // Your database username
@@ -202,7 +203,7 @@ $result = $conn->query($sql);
             <!--end::Page-->
         </div>
         <!--end::App-->
-        <!--begin::Modal - Create Api Key-->
+        <!--begin::Modal - Appraisal Checlist-->
         <div class="modal fade" id="kt_modal_edit" tabindex="-1" aria-hidden="true">
             <!--begin::Modal dialog-->
             <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -224,7 +225,7 @@ $result = $conn->query($sql);
                     </div>
                     <!--end::Modal header-->
                     <!--begin::Form-->
-                    <form id="kt_modal_edit_form" class="form" method="POST" action="admin/faculty/edit.php">
+                    <form id="kt_modal_appraisal_form" class="form" onsubmit="return handleSubmit(event)">
                         <!--begin::Modal body-->
                         <div class="modal-body py-10 px-lg-17">
                             <!--begin::Scroll-->
@@ -483,8 +484,14 @@ $result = $conn->query($sql);
                                 <input class="form-control w-25" type="number" value="0" id="Performance_Rating"
                                     name="Performance_Rating" required>
                             </div>
+                            <!-- Display the total score -->
+                            <div class="mb-3">
+                                <label class="form-label" for="Total_Score">
+                                    Total:
+                                </label>
+                                <span id="Total_Score">0</span>
+                            </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
-
                             <!--end::Scroll-->
                         </div>
                         <!--end::Modal body-->
@@ -495,7 +502,7 @@ $result = $conn->query($sql);
             </div>
             <!--end::Modal dialog-->
         </div>
-        <!--end::Modal - Create Api Key-->
+        <!--end::Modal - Appraisal Checlist-->
         <!--begin::Drawers-->
         <!--begin::Activities drawer-->
         <div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities"
@@ -5535,38 +5542,58 @@ $result = $conn->query($sql);
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var editButtons = document.querySelectorAll('.edit-btn');
-        editButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var id = this.getAttribute('data-id');
-                var name = this.getAttribute('data-name');
-                var email = this.getAttribute('data-email');
-                var department = this.getAttribute('data-department');
-                var role = this.getAttribute('data-role');
-                var contract = this.getAttribute('data-contract');
-                var date = this.getAttribute('data-date');
+    let appraisalPointsMap = {};
 
-                document.getElementById('editId').value = id;
-                document.getElementById('editName').value = name;
-                document.getElementById('editEmail').value = email;
-                document.getElementById('editDepartment').value = department;
-                document.getElementById('editRole').value = role;
-                document.getElementById('editContract').value = contract;
-                document.getElementById('editDate').value = date;
+    window.onload = function () {
+        fetch('admin/data/appraisalPoints.json')
+            .then(response => response.json())
+            .then(data => {
+                appraisalPointsMap = data;
+                console.log('Appraisal points:', appraisalPointsMap);
             });
+
+        // Add event listeners to update the score when values change
+        document.getElementById('Performance_Rating').addEventListener('input', updateScore);
+        document.getElementById('Additional_Units').addEventListener('input', updateScore);
+        var checkboxes = document.getElementById('kt_modal_appraisal_form').querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', updateScore);
         });
-    });
+    };
+
+    function updateScore() {
+        var totalScore = 0;
+
+        // Get the value of the Performance Rating input
+        var performanceRating = parseInt(document.getElementById('Performance_Rating').value) || 0;
+        totalScore += performanceRating;
+
+        // get the value of the Additional Units input
+        var additionalUnits = parseInt(document.getElementById('Additional_Units').value) || 0;
+        totalScore += additionalUnits;
+
+        // Get the values of the checkboxes
+        var checkboxes = document.getElementById('kt_modal_appraisal_form').querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                console.log('Checkbox:', checkbox.id);
+                totalScore += parseInt(appraisalPointsMap[checkbox.id]);
+            }
+        });
+
+        // Update the total score display
+        document.getElementById('Total_Score').innerText = totalScore;
+    }
 
     function saveChanges() {
-        var form = document.getElementById('appraisalForm');
+        var form = document.getElementById('kt_modal_appraisal_form');
         var checkboxes = form.querySelectorAll('input[type="checkbox"]');
         var selectedColumns = [];
         checkboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
                 selectedColumns.push(checkbox.id);
             }
-        });        
+        });
         //TODO: get int values from the form
 
         //TODO: create json kvp of keystring:intvalue
