@@ -225,41 +225,48 @@ $result = $conn->query($sql);
                     </div>
                     <!--end::Modal header-->
                     <!--begin::Form-->
-                    <form id="kt_modal_appraisal_form" class="form" onsubmit="return handleSubmit(event)">
+                    <form id="kt_modal_appraisal_form" class="form" action="admin/appraisal/updateAppraisalRecord.php"
+                        method="POST">
                         <!--begin::Modal body-->
+                        <!--begin::Appraisal input-->
                         <div class="modal-body py-10 px-lg-17">
                             <!--begin::Scroll-->
-                            <input type="hidden" id="editId" name="id">
+                            <input type="hidden" id="FormID" name="ID" value="0">
+                            <input type="hidden" id="Total" name="Total" value="0" type="number">
                             <div class="mb-3 d-flex justify-content-between align-items-center form-label">
                                 <label class="form-check-label" for="Doctorate_Degree">
                                     Doctorate Degree
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Doctorate_Degree">
+                                <input class="form-check-input" type="checkbox" value="1" id="Doctorate_Degree"
+                                    name="Doctorate_Degree">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center form-label">
                                 <label class="form-check-label" for="Masters_Degree">
                                     Masters Degree
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Masters_Degree">
+                                <input class="form-check-input" type="checkbox" value="1" id="Masters_Degree"
+                                    name="Masters_Degree">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center form-label">
                                 <label class="form-check-label" for="Bachelors_Degree">
                                     Bachelors Degree
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Bachelors_Degree">
+                                <input class="form-check-input" type="checkbox" value="1" id="Bachelors_Degree"
+                                    name="Bachelors_Degree">
                             </div>
-
                             <div class="mb-3 d-flex justify-content-between align-items-center form-label">
                                 <label class="form-check-label" for="Special_Course">
                                     Special Course
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Special_Course">
+                                <input class="form-check-input" type="checkbox" value="1" id="Special_Course"
+                                    name="Special_Course">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center form-label">
                                 <label class="form-check-label" for="License_Examination">
                                     License Examination
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="License_Examination">
+                                <input class="form-check-input" type="checkbox" value="1" id="License_Examination"
+                                    name="License_Examination">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-label" for="Additional_Units">
@@ -272,216 +279,241 @@ $result = $conn->query($sql);
                                 <label class="form-check-label" for="Service_Years_Other_School">
                                     Service Years Other School
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Service_Years_Other_School">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Service_Years_Other_School" name="Service_Years_Other_School">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Asiatech">
                                     Service Years Asiatech
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Service_Years_Asiatech">
+                                <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Asiatech"
+                                    name="Service_Years_Asiatech">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Industry">
                                     Service Years Industry
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Service_Years_Industry">
+                                <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Industry"
+                                    name="Service_Years_Industry">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Role_A">
                                     Service Years Role A
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Service_Years_Role_A">
+                                <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Role_A"
+                                    name="Service_Years_Role_A">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Role_B">
                                     Service Years Role B
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Service_Years_Role_B">
+                                <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Role_B"
+                                    name="Service_Years_Role_B">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Role_C">
                                     Service Years Role C
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Service_Years_Role_C">
+                                <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Role_C"
+                                    name="Service_Years_Role_C">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Original_Author">
                                     Works Original Author
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Original_Author">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Original_Author"
+                                    name="Works_Original_Author">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Co_Author">
                                     Works Co-Author
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Co_Author">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Co_Author"
+                                    name="Works_Co_Author">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Reviewer">
                                     Works Reviewer
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Reviewer">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Reviewer"
+                                    name="Works_Reviewer">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Editor">
                                     Works Editor
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Editor">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Editor"
+                                    name="Works_Editor">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Compiler">
                                     Works Compiler
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Compiler">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Compiler"
+                                    name="Works_Compiler">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Encoder">
                                     Works Encoder
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Encoder">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Encoder"
+                                    name="Works_Encoder">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Programmer">
                                     Works Programmer
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Works_Programmer">
+                                <input class="form-check-input" type="checkbox" value="1" id="Works_Programmer"
+                                    name="Works_Programmer">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Paper_Publish_Count_International">
                                     Paper Publish Count International
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Paper_Publish_Count_International">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Paper_Publish_Count_International" name="Paper_Publish_Count_International">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Paper_Publish_Count_National">
                                     Paper Publish Count National
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Paper_Publish_Count_National">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Paper_Publish_Count_National" name="Paper_Publish_Count_National">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Paper_Publish_Count_Local">
                                     Paper Publish Count Local
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Paper_Publish_Count_Local">
+                                <input class="form-check-input" type="checkbox" value="1" id="Paper_Publish_Count_Local"
+                                    name="Paper_Publish_Count_Local">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Training_Course_Years_International">
                                     Training Course Years International
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Training_Course_Years_International">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Training_Course_Years_International" name="Training_Course_Years_International">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Training_Course_Years_National">
                                     Training Course Years National
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Training_Course_Years_National">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Training_Course_Years_National" name="Training_Course_Years_National">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Training_Course_Years_Local">
                                     Training Course Years Local
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Training_Course_Years_Local">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Training_Course_Years_Local" name="Training_Course_Years_Local">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Resource_Person_International">
                                     Resource Person International
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Resource_Person_International">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Resource_Person_International" name="Resource_Person_International">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Resource_Person_National">
                                     Resource Person National
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Resource_Person_National">
+                                <input class="form-check-input" type="checkbox" value="1" id="Resource_Person_National"
+                                    name="Resource_Person_National">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Resource_Person_Local">
                                     Resource Person Local
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Resource_Person_Local">
+                                <input class="form-check-input" type="checkbox" value="1" id="Resource_Person_Local"
+                                    name="Resource_Person_Local">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Seminar_International">
                                     Seminar International
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Seminar_International">
+                                <input class="form-check-input" type="checkbox" value="1" id="Seminar_International"
+                                    name="Seminar_International">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Seminar_National">
                                     Seminar National
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Seminar_National">
+                                <input class="form-check-input" type="checkbox" value="1" id="Seminar_National"
+                                    name="Seminar_National">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Seminar_Local">
                                     Seminar Local
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Seminar_Local">
+                                <input class="form-check-input" type="checkbox" value="1" id="Seminar_Local"
+                                    name="Seminar_Local">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Membership_Learned_Society">
                                     Membership Learned Society
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Membership_Learned_Society">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Membership_Learned_Society" name="Membership_Learned_Society">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Membership_Professional_Organization">
                                     Membership Professional Organization
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Membership_Professional_Organization">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Membership_Professional_Organization"
+                                    name="Membership_Professional_Organization">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Membership_Civic_Social_Economic_Organization">
                                     Membership Civic Social Economic Organization
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Membership_Civic_Social_Economic_Organization">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Membership_Civic_Social_Economic_Organization"
+                                    name="Membership_Civic_Social_Economic_Organization">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Honors_Summa_Cum_Laude">
                                     Honors Summa Cum Laude
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Honors_Summa_Cum_Laude">
+                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Summa_Cum_Laude"
+                                    name="Honors_Summa_Cum_Laude">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Honors_Cum_Laude">
                                     Honors Cum Laude
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Honors_Cum_Laude">
+                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Cum_Laude"
+                                    name="Honors_Cum_Laude">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Honors_Honorable_Mention">
                                     Honors Honorable Mention
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Honors_Honorable_Mention">
+                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Honorable_Mention"
+                                    name="Honors_Honorable_Mention">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Civic_Service_First_level">
                                     Civic Service First Level
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Civic_Service_First_level">
+                                <input class="form-check-input" type="checkbox" value="1" id="Civic_Service_First_level"
+                                    name="Civic_Service_First_level">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Civic_Service_Second_level">
                                     Civic Service Second Level
                                 </label>
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="Civic_Service_Second_level">
+                                <input class="form-check-input" type="checkbox" value="1"
+                                    id="Civic_Service_Second_level" name="Civic_Service_Second_level">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Civic_Service_Third_level">
                                     Civic Service Third Level
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Civic_Service_Third_level">
+                                <input class="form-check-input" type="checkbox" value="1" id="Civic_Service_Third_level"
+                                    name="Civic_Service_Third_level">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-label" for="Performance_Rating">
@@ -5570,18 +5602,19 @@ $result = $conn->query($sql);
         $('#kt_modal_edit').on('show.bs.modal', function (event) {
             const button = $(event.relatedTarget); // Button that triggered the modal
             const id = button.data('id'); // Extract info from data-* attributes
-            console.log("ID: " + id);
+            document.getElementById('FormID').value = id;
+            console.log("Loading record ID: " + id);
             // Fetch the data for the selected ID
-            fetch(`admin/appraisal/getAppraisalData.php?id=${id}`)
+            fetch(`admin/appraisal/getAppraisalRecord.php?id=${id}`)
                 .then(response => response.json())
                 .then(data => {
                     // Populate the form fields with the fetched data
                     document.getElementById('Performance_Rating').value = data.Performance_Rating || 0;
                     document.getElementById('Additional_Units').value = data.Additional_Units || 0;
                     for (const key in appraisalPointsMap) {
-                        if (key !== 'Performance_Rating' && key !== 'Additional_Units') {
+                        if (key !== 'Performance_Rating' && key !== 'Additional_Units' && key !== 'ID') {
                             const checkbox = document.getElementById(key);
-                            console.log('Key:', key);
+                            //console.log('Key:', key);
                             checkbox.checked = data[key] || false;
                         }
                     }
@@ -5605,14 +5638,16 @@ $result = $conn->query($sql);
         var checkboxes = document.getElementById('kt_modal_appraisal_form').querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
-                console.log('Checkbox:', checkbox.id);
+                //console.log('Checkbox:', checkbox.id);
                 totalScore += parseInt(appraisalPointsMap[checkbox.id]);
             }
         });
 
         // Update the total score display
         document.getElementById('Total_Score').innerText = totalScore;
+        document.getElementById('Total').value = totalScore.toString();
     }
+
 
     function saveChanges() {
         var form = document.getElementById('kt_modal_appraisal_form');
@@ -5623,14 +5658,9 @@ $result = $conn->query($sql);
                 selectedColumns.push(checkbox.id);
             }
         });
-        //TODO: get int values from the form
-
-        //TODO: create json kvp of keystring:intvalue
-
+        //TODO: update the saveChanges function to send the data to the server
         //TODO: limit the last performance int value to 5
-        console.log('Selected columns:', selectedColumns);
+        //console.log('Selected columns:', selectedColumns);
         // You can send the selected columns to the server or handle them as needed
-
-        //TODO: update the total score when values are changed
     }
 </script>
