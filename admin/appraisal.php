@@ -300,6 +300,12 @@ $result = $conn->query($sql);
                                 <input class="form-check-input" type="checkbox" value="" id="Service_Years_Role_B">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
+                                <label class="form-check-label" for="Service_Years_Role_C">
+                                    Service Years Role C
+                                </label>
+                                <input class="form-check-input" type="checkbox" value="" id="Service_Years_Role_C">
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Works_Original_Author">
                                     Works Original Author
                                 </label>
@@ -5558,6 +5564,29 @@ $result = $conn->query($sql);
         var checkboxes = document.getElementById('kt_modal_appraisal_form').querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(function (checkbox) {
             checkbox.addEventListener('change', updateScore);
+        });
+
+        // Update the form values when the modal is shown
+        $('#kt_modal_edit').on('show.bs.modal', function (event) {
+            const button = $(event.relatedTarget); // Button that triggered the modal
+            const id = button.data('id'); // Extract info from data-* attributes
+            console.log("ID: " + id);
+            // Fetch the data for the selected ID
+            fetch(`admin/appraisal/getAppraisalData.php?id=${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the form fields with the fetched data
+                    document.getElementById('Performance_Rating').value = data.Performance_Rating || 0;
+                    document.getElementById('Additional_Units').value = data.Additional_Units || 0;
+                    for (const key in appraisalPointsMap) {
+                        if (key !== 'Performance_Rating' && key !== 'Additional_Units') {
+                            const checkbox = document.getElementById(key);
+                            console.log('Key:', key);
+                            checkbox.checked = data[key] || false;
+                        }
+                    }
+                    updateScore();
+                });
         });
     };
 
