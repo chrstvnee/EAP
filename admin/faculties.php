@@ -138,7 +138,7 @@ $result = $conn->query($sql);
 
 								<!--begin::Add record-->
 								<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-									data-bs-target="#kt_modal_add_customer" style="margin-right: 110px">Add Record</button>
+									data-bs-target="#kt_modal_add" style="margin-right: 110px">Add Record</button>
 								<!--end::Add record-->
 							</div>
 							<div id="kt_app_content_container" class="app-container container-xxl">
@@ -223,7 +223,7 @@ $result = $conn->query($sql);
 			<!--end::Page-->
 		</div>
 		<!--end::App-->
-		<!--begin::Modal - Create Api Key-->
+		<!--begin::Modal - Edit Employee-->
 		<div class="modal fade" id="kt_modal_edit" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
 			<div class="modal-dialog modal-dialog-centered mw-650px">
@@ -286,7 +286,71 @@ $result = $conn->query($sql);
 			</div>
 			<!--end::Modal dialog-->
 		</div>
-		<!--end::Modal - Create Api Key-->
+		<!--end::Modal - Edit Employee-->
+		<!--begin::Modal - Add Employee-->
+		<div class="modal fade" id="kt_modal_add" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-650px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header" id="kt_modal_add_header">
+						<!--begin::Modal title-->
+						<h2>Add Record</h2>
+						<!--end::Modal title-->
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-duotone ki-cross fs-1">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Modal header-->
+					<!--begin::Form-->
+					<form id="kt_modal_add_form" class="form" method="POST" action="admin/faculty/add.php">
+						<!--begin::Modal body-->
+						<div class="modal-body py-10 px-lg-17">
+							<!--begin::Scroll-->
+							<input type="hidden" id="addId" name="id">
+							<div class="mb-3">
+								<label for="addName" class="form-label">Name</label>
+								<input type="text" class="form-control" id="addName" name="name" required>
+							</div>
+							<div class="mb-3">
+								<label for="addEmail" class="form-label">Email</label>
+								<input type="email" class="form-control" id="addEmail" name="email" required>
+							</div>
+							<div class="mb-3">
+								<label for="addDepartment" class="form-label">Department</label>
+								<input type="text" class="form-control" id="addDepartment" name="department" required>
+							</div>
+							<div class="mb-3">
+								<label for="addRole" class="form-label">Role</label>
+								<input type="text" class="form-control" id="addRole" name="role" required>
+							</div>
+							<div class="mb-3">
+								<label for="addContract" class="form-label">Contract</label>
+								<input type="text" class="form-control" id="addContract" name="contract" required>
+							</div>
+							<div class="mb-3">
+								<label for="addDate" class="form-label">Date</label>
+								<input type="date" class="form-control" id="addDate" name="date" required>
+							</div>
+							<button type="submit" class="btn btn-primary">Save changes</button>
+
+							<!--end::Scroll-->
+						</div>
+						<!--end::Modal body-->
+					</form>
+					<!--end::Form-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modal - Add Employee-->
 		<!--begin::Drawers-->
 		<!--begin::Activities drawer-->
 		<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities"
@@ -5347,5 +5411,10 @@ $result = $conn->query($sql);
 				document.getElementById('editDate').value = date;
 			});
 		});
+		var addModal = document.getElementById('kt_modal_add');
+        addModal.addEventListener('show.bs.modal', function (event) {
+            var form = document.getElementById('kt_modal_add_form');
+            form.reset();
+        });
 	});
 </script>
