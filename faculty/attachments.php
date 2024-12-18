@@ -11,21 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle form submission to update approval status
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['document_id']) && isset($_POST['action'])) {
-    $document_id = intval($_POST['document_id']);
-    $action = $_POST['action'] === 'approve' ? 1 : 0;
-
-    $stmt = $conn->prepare("UPDATE Documents SET Approved = ? WHERE ID = ?");
-    $stmt->bind_param("ii", $action, $document_id);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Fetch documents data with staff names
-$sql = "SELECT d.ID, s.Name, d.Document_Name, d.Approved, d.Staff_ID  
-        FROM Documents d
-        JOIN Staff s ON d.Staff_ID = s.ID";
+// Fetch documents data
+$sql = "SELECT Document_Name, Approved FROM Documents";
 $result = $conn->query($sql);
 ?>
 
@@ -134,64 +121,70 @@ $result = $conn->query($sql);
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content container-->
-                        <div id="kt_app_content_container" class="app-container container-xxl">
-                            <div class="d-flex flex-column flex-column-fluid ">
-                                <div class="card">
-                                    <div class="d-flex justify-content-between align-items-center my-4">
-                                        <div class="d-flex flex-column">
-                                            <h1>APPROVAL</h1>
-                                            <h6>In queue certificates and documents approval.</h6>
-                                        </div>
-                                    </div>
+                        <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                            <!--begin::Content wrapper-->
+                            <div class="d-flex flex-column flex-column-fluid">
+                                <!--begin::Toolbar-->
+                                <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                                </div>
+                                <!--end::Toolbar-->
+                                <!--begin::Content container-->
+                                <div id="kt_app_content_container" class="app-container container-xxl">
                                     <div class="card">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Filename</th>
-                                                        <th>Approved</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    if ($result->num_rows > 0) {
-                                                        // Output data of each row
-                                                        while ($row = $result->fetch_assoc()) {
-                                                            echo "<tr>";
-                                                            echo "<td>" . htmlspecialchars($row["Name"]) . "</td>";
-                                                            echo "<td><a href='/EAP/uploads/" . $row["Staff_ID"] . "/" . htmlspecialchars($row["Document_Name"]) . "' download>" . htmlspecialchars($row["Document_Name"]) . "</a></td>";
-                                                            echo "<td>";
-                                                            switch ($row["Approved"]) {
-                                                                case 0:
-                                                                    echo "False";
-                                                                    break;
-                                                                case 1:
-                                                                    echo "True";
-                                                                    break;
-                                                                case 2:
-                                                                    echo "Pending";
-                                                                    break;
-                                                                default:
-                                                                    echo "Unknown";
+                                        <div class="d-flex justify-content-between align-items-center my-4">
+                                            <div class="d-flex flex-column">
+                                                <h1>APPROVAL</h1>
+                                                <h6>In queue certificates and documents approval.</h6>
+                                            </div>
+
+                                            <!--begin::Upload file button-->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#kt_modal_add"
+                                                style="margin-right: 50px">Upload</button>
+                                            <!--end::Upload file button-->
+
+                                        </div>
+                                        <div class="card">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Approved</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        if ($result->num_rows > 0) {
+                                                            // Output data of each row
+                                                            while ($row = $result->fetch_assoc()) {
+                                                                echo "<tr>";
+                                                                echo "<td>" . htmlspecialchars($row["Document_Name"]) . "</td>";
+                                                                echo "<td>";
+                                                                switch ($row["Approved"]) {
+                                                                    case 0:
+                                                                        echo "False";
+                                                                        break;
+                                                                    case 1:
+                                                                        echo "True";
+                                                                        break;
+                                                                    case 2:
+                                                                        echo "Pending";
+                                                                        break;
+                                                                    default:
+                                                                        echo "Unknown";
+                                                                }
+                                                                echo "</td>";
+                                                                echo "</tr>";
                                                             }
-                                                            echo "</td>";
-                                                            echo "<td>";
-                                                            echo '<form method="post" style="display:inline-block;">';
-                                                            echo '<input type="hidden" name="document_id" value="' . $row["ID"] . '">';
-                                                            echo '<button type="submit" name="action" value="approve" class="btn btn-success btn-sm">✔</button>';
-                                                            echo '<button type="submit" name="action" value="disapprove" class="btn btn-danger btn-sm">✖</button>';
-                                                            echo '</form>';
-                                                            echo "</td>";
-                                                            echo "</tr>";
+                                                        } else {
+                                                            echo "<tr><td colspan='2'>No documents found</td></tr>";
                                                         }
-                                                    } else {
-                                                        echo "<tr><td colspan='4'>No documents found</td></tr>";
-                                                    }
-                                                    $conn->close();
-                                                    ?>
-                                                </tbody>
-                                            </table>
+                                                        $conn->close();
+                                                        ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

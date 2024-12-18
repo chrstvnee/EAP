@@ -8,6 +8,7 @@ USE StaffManagement;
 
 DROP TABLE IF EXISTS Appraisal;
 DROP TABLE IF EXISTS Staff;
+DROP TABLE IF EXISTS Documents;
 
 -- Main table
 CREATE TABLE Staff (
@@ -19,6 +20,13 @@ CREATE TABLE Staff (
     Role VARCHAR(50) CHECK (Role IN ('Head Dean', 'Faculty')),
     Contract VARCHAR(20) CHECK (Contract IN ('Full Time', 'Part Time')),
     Date DATE
+);
+
+CREATE TABLE Documents(
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Staff_ID INT,
+    Document_Name VARCHAR(100) NOT NULL,
+    Approved INT NOT NULL DEFAULT 2
 );
 
 CREATE TABLE Appraisal(

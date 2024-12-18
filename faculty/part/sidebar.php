@@ -101,7 +101,7 @@
 
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
 									<!--begin:Menu link-->
-									<span class="menu-link">
+									<a class="menu-link" href="faculty/attachments.php">
 										<span class="menu-icon">
 											<i class="fa-duotone fa-solid fa-file-check fs-1"></i>
 											<span class="path1"></span>
@@ -110,7 +110,7 @@
 										</span>
 										<span class="menu-title">Attachments</span>
 
-									</span>
+									</a>
 									<!--end:Menu link-->
 
 									<!-- <div class="menu-item pt-5">
