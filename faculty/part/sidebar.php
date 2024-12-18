@@ -60,46 +60,44 @@
 							<span class="menu-title">Home</span>
 						</a> -->
 
-						<div class="menu-item pt-5">
+
+						<!-- <div class="menu-item pt-5">
 							<div class="menu-content">
-								<!-- BEGIN TITLE -->
 								<div class="menu-heading fw-bold text-uppercase fs-7">Check</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
-							<a href="faculty/index.php" class="menu-link">
+							<!-- <a href="faculty/index.php" class="menu-link">
 								<span class="menu-icon">
 									<i class="fa-duotone fa-solid fa-user fs-1"></i>
 								</span>
 								<span class="menu-title">Profile</span>
-							</a>
+							</a> -->
 
-						<div class="menu-item pt-5">
-							<div class="menu-content">
-								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Assigned</div>
-							</div>
-						</div>
+							<!-- <div class="menu-item pt-5">
+								<div class="menu-content">
+									<div class="menu-heading fw-bold text-uppercase fs-7">Assigned</div>
+								</div>
+							</div> -->
+
 
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
-							<!--begin:Menu link-->
-							<span class="menu-link">
-								<span class="menu-icon">
-									<i class="fa-duotone fa-solid fa-books-medical fs-1"></i>
-									<span class="path1"></span>
-									<span class="path2"></span>
-									</i>
-								</span>
-								<span class="menu-title">Units</span>
-							</span>
-							
-							<div class="menu-item pt-5">
-							<div class="menu-content">
-								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Approve</div>
-							</div>
-						</div>
+								<!--begin:Menu link-->
+								<!-- <span class="menu-link">
+									<span class="menu-icon">
+										<i class="fa-duotone fa-solid fa-books-medical fs-1"></i>
+										<span class="path1"></span>
+										<span class="path2"></span>
+										</i>
+									</span>
+									<span class="menu-title">Units</span>
+								</span> -->
+								<div class="menu-item pt-5">
+									<div class="menu-content">
+										<div class="menu-heading fw-bold text-uppercase fs-7">Approve</div>
+									</div>
+								</div>
 
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
 									<!--begin:Menu link-->
@@ -115,47 +113,40 @@
 									</span>
 									<!--end:Menu link-->
 
-						<div class="menu-item pt-5">
-							<div class="menu-content">
-								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Managing</div>
-							</div>
-						</div>
+									<!-- <div class="menu-item pt-5">
+										<div class="menu-content">
+											<div class="menu-heading fw-bold text-uppercase fs-7">Managing</div>
+										</div>
+									</div> -->
 									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
-									<span class="menu-link">
+										<!-- <span class="menu-link">
 											<span class="menu-icon">
-											<i class="fa-duotone fa-solid fa-calendar fs-1"></i>
-											<span class="path1"></span>
-											<span class="path2"></span>
-											<span class="path3"></span>
-										</i>
-									</span>
-							<span class="menu-title">Calendar</span>
-						</span>
+												<i class="fa-duotone fa-solid fa-calendar fs-1"></i>
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+												</i>
+											</span>
+											<span class="menu-title">Calendar</span>
+										</span> -->
 
-						<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<!--begin:Menu link-->
-							<span class="menu-link">
-								<span class="menu-icon">
-										<i class="fa-duotone fa-solid fa-messages fs-1"></i>
-										<span class="path1"></span>
-										<span class="path2"></span>
-										<span class="path3"></span>
-									</i>
-								</span>
-							<span class="menu-title">Messages</span>
-						</span>
-											<br>&nbsp;&nbsp;
-											<br>&nbsp;&nbsp;
-											<br>&nbsp;&nbsp;
-											<br>&nbsp;&nbsp;
-											<br>&nbsp;&nbsp;
-											<br>&nbsp;&nbsp;
+										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<!--begin:Menu link-->
+											<!-- <span class="menu-link">
+												<span class="menu-icon">
+													<i class="fa-duotone fa-solid fa-messages fs-1"></i>
+													<span class="path1"></span>
+													<span class="path2"></span>
+													<span class="path3"></span>
+													</i>
+												</span>
+												<span class="menu-title">Messages</span>
+											</span> -->
 											<br>&nbsp;&nbsp;
 											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 												<!--begin:Menu link-->
-												<span class="menu-link">
+												<!-- <span class="menu-link">
 													<span class="menu-icon">
 														<i class="fa-regular fa-gear fs-1"></i>
 														<span class="path1"></span>
@@ -164,10 +155,11 @@
 														</i>
 													</span>
 													<span class="menu-title">Settings</span>
-												</span>
+												</span> -->
 												<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 													<!--begin:Menu link-->
-													<span class="menu-link">
+													<a href="admin/authentication/overlay/sign-in.php"
+														class="menu-link">
 														<span class="menu-icon">
 															<i class="fa-regular fa-arrow-right-from-bracket fs-1"
 																style="color: #ee535b;"></i>
@@ -177,7 +169,9 @@
 															</i>
 														</span>
 														<span class="menu-title">Log-out</span>
-													</span>
+													</a>
+
+
 
 
 
