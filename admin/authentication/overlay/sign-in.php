@@ -96,8 +96,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Wrapper-->
 						<div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
 							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
-								data-kt-redirect-url="index.html" action="#">
+							<form class="form w-100" method="POST" action="admin/authentication/data/login.php">
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
 									<!--begin::Title-->
@@ -119,7 +118,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="fv-row mb-8">
 									<!--begin::Email-->
 									<input type="text" placeholder="Email" name="email" autocomplete="off"
-										class="form-control bg-transparent" />
+										class="form-control bg-transparent" required />
 									<!--end::Email-->
 								</div>
 								<!--end::Input group=-->

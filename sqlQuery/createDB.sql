@@ -72,6 +72,7 @@ CREATE TABLE Appraisal(
 -- Insert test values
 INSERT INTO Staff (Image_URL, Name, Email, Department, Role, Contract, Date)
 VALUES
+('https://example.com/image0.jpg', 'Admin', 'admin@asiatech.com', 'CEITE', 'Head Dean', 'Full Time', '2020-06-15'),
 ('https://example.com/image1.jpg', 'John Doe', 'john.doe@example.com', 'CBHTM/BSBMA', 'Head Dean', 'Full Time', '2020-06-15'),
 ('https://example.com/image2.jpg', 'Jane Smith', 'jane.smith@example.com', 'CEITE', 'Faculty', 'Part Time', '2018-08-25'),
 ('https://example.com/image3.jpg', 'Mark Johnson', 'mark.johnson@example.com', 'ASCERT', 'Faculty', 'Full Time', '2021-09-12'),
