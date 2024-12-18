@@ -11,9 +11,29 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch documents data
-$sql = "SELECT Document_Name, Approved FROM Documents";
-$result = $conn->query($sql);
+// Read email from session.txt
+$root_path = $_SERVER['DOCUMENT_ROOT'];
+$emailFile = $root_path . '/EAP/admin/authentication/data/session.txt';
+$email = trim(file_get_contents($emailFile));
+
+// Get staff ID from email
+$stmt = $conn->prepare("SELECT ID FROM Staff WHERE Email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->bind_result($staff_id);
+$stmt->fetch();
+$stmt->close();
+
+if (!$staff_id) {
+    die("Staff ID not found for the given email.");
+}
+
+// Fetch documents data for the staff ID
+$sql = "SELECT Document_Name, Approved FROM Documents WHERE Staff_ID = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $staff_id);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
