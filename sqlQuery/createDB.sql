@@ -26,7 +26,7 @@ CREATE TABLE Documents(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Staff_ID INT,
     Document_Name VARCHAR(100) NOT NULL,
-    Approved BOOLEAN NOT NULL DEFAULT 0
+    Approved INT NOT NULL DEFAULT 2
 );
 
 CREATE TABLE Appraisal(

@@ -1,3 +1,21 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "StaffManagement";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch documents data
+$sql = "SELECT Document_Name, Approved FROM Documents";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -131,57 +149,39 @@
                                                 <table class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th>Course Code</th>
-                                                            <th>Description</th>
-                                                            <th>Unit/HR</th>
-                                                            <th>Schedule</th>
+                                                            <th>Filename</th>
+                                                            <th>Approved</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>CS020</td>
-                                                            <td>System Administration and Maintenance</td>
-                                                            <td>3.0</td>
-                                                            <td>03 Computer Laboratory - ASIATECH MAIN - Third Floor -
-                                                                Wed 15:30-18:30</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CS034</td>
-                                                            <td>Integrative Programming and Technologies 2</td>
-                                                            <td>5.0</td>
-                                                            <td>3CL1-4BSITI-CS034 - Thu 07:30-12:30</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>GE020</td>
-                                                            <td>Living in the IT Era</td>
-                                                            <td>3.0</td>
-                                                            <td>MAN C - Tue 06:30-09:30</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CS012</td>
-                                                            <td>Information Assurance and Security 2</td>
-                                                            <td>5.0</td>
-                                                            <td>3CL2-4BSITI-CS012 - Thu 13:30-18:30</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>ITElec-4</td>
-                                                            <td>IT Elective 4</td>
-                                                            <td>3.0</td>
-                                                            <td>03 Computer Laboratory - ASIATECH MAIN - Third Floor -
-                                                                Wed 12:30-15:30</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CS022</td>
-                                                            <td>Social and Professional Issues</td>
-                                                            <td>3.0</td>
-                                                            <td>TEMP2 - Tue 09:30-12:30</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CS050</td>
-                                                            <td>Thesis 1</td>
-                                                            <td>3.0</td>
-                                                            <td>TUA - Wed 09:30-12:30</td>
-                                                        </tr>
+                                                        <?php
+                                                        if ($result->num_rows > 0) {
+                                                            // Output data of each row
+                                                            while ($row = $result->fetch_assoc()) {
+                                                                echo "<tr>";
+                                                                echo "<td>" . htmlspecialchars($row["Document_Name"]) . "</td>";
+                                                                echo "<td>";
+                                                                switch ($row["Approved"]) {
+                                                                    case 0:
+                                                                        echo "False";
+                                                                        break;
+                                                                    case 1:
+                                                                        echo "True";
+                                                                        break;
+                                                                    case 2:
+                                                                        echo "Pending";
+                                                                        break;
+                                                                    default:
+                                                                        echo "Unknown";
+                                                                }
+                                                                echo "</td>";
+                                                                echo "</tr>";
+                                                            }
+                                                        } else {
+                                                            echo "<tr><td colspan='2'>No documents found</td></tr>";
+                                                        }
+                                                        $conn->close();
+                                                        ?>
                                                     </tbody>
                                                 </table>
                                             </div>
