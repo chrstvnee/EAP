@@ -179,7 +179,7 @@ $result = $stmt->get_result();
                                                             // Output data of each row
                                                             while ($row = $result->fetch_assoc()) {
                                                                 echo "<tr>";
-                                                                echo "<td>" . htmlspecialchars($row["Document_Name"]) . "</td>";
+                                                                echo "<td><a href='/EAP/uploads/" . $staff_id . "/" . htmlspecialchars($row["Document_Name"]) . "' download>" . htmlspecialchars($row["Document_Name"]) . "</a></td>";
                                                                 echo "<td>";
                                                                 switch ($row["Approved"]) {
                                                                     case 0:
