@@ -113,13 +113,19 @@
                                 <!--begin::Content container-->
                                 <div id="kt_app_content_container" class="app-container container-xxl">
                                     <div class="card">
-                                        <div class="row">
-                                            <h1>FACULTIES</h1>
-                                            <h6>See all the overview analytics.</h6>
+                                        <div class="d-flex justify-content-between align-items-center my-4">
+                                            <div class="d-flex flex-column">
+                                                <h1>APPROVAL</h1>
+                                                <h6>In queue certificates and documents approval.</h6>
+                                            </div>
+
+                                            <!--begin::Upload file button-->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#kt_modal_add"
+                                                style="margin-right: 50px">Upload</button>
+                                            <!--end::Upload file button-->
+
                                         </div>
-                                        <!--begin::Row-->
-                                        <?php include "part/employeeCards.php" ?>
-                                        <!--end::Row-->
                                         <div class="card">
                                             <div class="table-responsive">
                                                 <table class="table table-bordered table-striped">
@@ -1571,6 +1577,33 @@
         </div>
         <!--end::Scrolltop-->
         <!--begin::Modals-->
+        <!--begin::Modal - Add File-->
+        <div class="modal fade" id="kt_modal_add" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered mw-650px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Upload File</h2>
+                        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                            <span class="svg-icon svg-icon-1">
+                                <i class="fa fa-times"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/EAP/uploads/upload.php" method="post" enctype="multipart/form-data">
+                            <div class="mb-10">
+                                <label for="file" class="form-label">Choose file to upload:</label>
+                                <input type="file" name="file" id="file" class="form-control">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end::Modal - Add File-->
         <!--begin::Modal - Upgrade plan-->
         <div class="modal fade" id="kt_modal_upgrade_plan" tabindex="-1" aria-hidden="true">
             <!--begin::Modal dialog-->
