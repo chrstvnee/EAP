@@ -89,16 +89,15 @@
 								<span class="menu-title">Profile</span>
 							</a> -->
 
-						<div class="menu-item pt-5">
+						<!-- <div class="menu-item pt-5">
 							<div class="menu-content">
-								<!-- BEGIN TITLE -->
 								<div class="menu-heading fw-bold text-uppercase fs-7">Assigned</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div data-kt-menu-trigger="click" class="menu-item menu-accordion hover">
 							<!--begin:Menu link-->
-							<span class="menu-link">
+							<!-- <span class="menu-link">
 								<span class="menu-icon">
 									<i class="fa-duotone fa-solid fa-books-medical fs-1"></i>
 									<span class="path1"></span>
@@ -106,7 +105,7 @@
 									</i>
 								</span>
 								<span class="menu-title">Units</span>
-							</span>
+							</span> -->
 
 							<div class="menu-item pt-5">
 								<div class="menu-content">
@@ -129,15 +128,14 @@
 								</span>
 								<!--end:Menu link-->
 
-								<div class="menu-item pt-5">
+								<!-- <div class="menu-item pt-5">
 									<div class="menu-content">
-										<!-- BEGIN TITLE -->
 										<div class="menu-heading fw-bold text-uppercase fs-7">Managing</div>
 									</div>
-								</div>
+								</div> -->
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<!--begin:Menu link-->
-									<span class="menu-link">
+									<!-- <span class="menu-link">
 										<span class="menu-icon">
 											<i class="fa-duotone fa-solid fa-calendar fs-1"></i>
 											<span class="path1"></span>
@@ -146,11 +144,11 @@
 											</i>
 										</span>
 										<span class="menu-title">Calendar</span>
-									</span>
+									</span> -->
 
 									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
-										<span class="menu-link">
+										<!-- <span class="menu-link">
 											<span class="menu-icon">
 												<i class="fa-duotone fa-solid fa-messages fs-1"></i>
 												<span class="path1"></span>
@@ -159,17 +157,11 @@
 												</i>
 											</span>
 											<span class="menu-title">Messages</span>
-										</span>
-										<br>&nbsp;&nbsp;
-										<br>&nbsp;&nbsp;
-										<br>&nbsp;&nbsp;
-										<br>&nbsp;&nbsp;
-										<br>&nbsp;&nbsp;
-										<br>&nbsp;&nbsp;
+										</span> -->
 										<br>&nbsp;&nbsp;
 										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 											<!--begin:Menu link-->
-											<span class="menu-link">
+											<!-- <span class="menu-link">
 												<span class="menu-icon">
 													<i class="fa-regular fa-gear fs-1"></i>
 													<span class="path1"></span>
@@ -178,10 +170,10 @@
 													</i>
 												</span>
 												<span class="menu-title">Settings</span>
-											</span>
+											</span> -->
 											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 												<!--begin:Menu link-->
-												<span class="menu-link">
+												<a href="admin/authentication/overlay/sign-in.php" class="menu-link">
 													<span class="menu-icon">
 														<i class="fa-regular fa-arrow-right-from-bracket fs-1"
 															style="color: #ee535b;"></i>
@@ -191,7 +183,7 @@
 														</i>
 													</span>
 													<span class="menu-title">Log-out</span>
-												</span>
+												</a>
 
 
 
