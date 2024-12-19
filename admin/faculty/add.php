@@ -1,14 +1,12 @@
 <?php
-// Database connection details
-$host = "localhost";
+// Database connection
+$servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "staffmanagement";
+$dbname = "StaffManagement";
 
-// Create a connection
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -24,19 +22,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'];
 
     // Prepare an insert statement
-    $sql = "INSERT INTO staff (Name, Email, Department, Role, Contract, Date) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Staff (Name, Email, Department, Role, Contract, Date) VALUES (?, ?, ?, ?, ?, ?)";
 
     if ($stmt = $conn->prepare($sql)) {
         // Bind variables to the prepared statement as parameters
         $stmt->bind_param("ssssss", $name, $email, $department, $role, $contract, $date);
 
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Get the last inserted ID
+            $staff_id = $stmt->insert_id;
+
+            // Insert into Appraisal table
+            $sql_appraisal = "INSERT INTO Appraisal (Staff_ID) VALUES (?)";
+            if ($stmt_appraisal = $conn->prepare($sql_appraisal)) {
+                $stmt_appraisal->bind_param("i", $staff_id);
+                $stmt_appraisal->execute();
+                $stmt_appraisal->close();
+            } else {
+                echo "Error: " . $conn->error;
+            }
+
+            // Redirect to faculties page after successful insertion
+            header("Location: http://localhost/EAP/admin/faculties.php");
+            exit();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
         // Close statement
         $stmt->close();
+    } else {
+        echo "Error: " . $conn->error;
     }
 
     // Close connection
     $conn->close();
-    header("Location: http://localhost/EAP/admin/faculties.php");
-    exit();
 }
 ?>
