@@ -155,15 +155,16 @@ $stmt->bind_param(
 // Execute the statement
 if ($stmt->execute()) {
     echo "Record updated successfully";
+
+    // Close connection
+    $stmt->close();
+    $conn->close();
+
+    // Redirect back to the main page
+    header("Location: http://localhost/EAP/admin/appraisal.php");
+    exit();
 } else {
     echo "Error updating record: " . $stmt->error;
 }
 
-// Close connection
-$stmt->close();
-$conn->close();
-
-// Redirect back to the main page
-header("Location: http://localhost/EAP/admin/appraisal.php");
-exit();
 ?>
