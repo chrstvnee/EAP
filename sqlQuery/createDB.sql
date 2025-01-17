@@ -26,7 +26,9 @@ CREATE TABLE Documents(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Staff_ID INT,
     Document_Name VARCHAR(100) NOT NULL,
-    Approved INT NOT NULL DEFAULT 2
+    Approved INT NOT NULL DEFAULT 2,
+    Comments VARCHAR(250) NOT NULL,
+    Points INT,
 );
 
 CREATE TABLE Appraisal(
@@ -67,8 +69,8 @@ CREATE TABLE Appraisal(
     Membership_Learned_Society BOOLEAN NOT NULL DEFAULT 0,
     Membership_Professional_Organization BOOLEAN NOT NULL DEFAULT 0,
     Membership_Civic_Social_Economic_Organization BOOLEAN NOT NULL DEFAULT 0,
-    Honors_Summa_Cum_Laude BOOLEAN NOT NULL DEFAULT 0,
-    Honors_Cum_Laude BOOLEAN NOT NULL DEFAULT 0,
+    Honors_Summa_Laude BOOLEAN NOT NULL DEFAULT 0,
+    Honors_Laude BOOLEAN NOT NULL DEFAULT 0,
     Honors_Honorable_Mention BOOLEAN NOT NULL DEFAULT 0,
     Civic_Service_First_level BOOLEAN NOT NULL DEFAULT 0,
     Civic_Service_Second_level BOOLEAN NOT NULL DEFAULT 0,
