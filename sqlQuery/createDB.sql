@@ -27,9 +27,10 @@ CREATE TABLE Documents(
     Staff_ID INT,
     Document_Name VARCHAR(100) NOT NULL,
     Approved INT NOT NULL DEFAULT 2,
-    ApproverComments VARCHAR(500) NOT NULL,
-    UploaderComments VARCHAR(500) NOT NULL,
-    Points INT,
+    Approver_Comments VARCHAR(500) DEFAULT "",
+    Uploader_Comments VARCHAR(500) DEFAULT "",
+    Points INT NOT NULL DEFAULT 0,
+    Custom_Points BOOLEAN NOT NULL DEFAULT 0,
     Category VARCHAR(50) CHECK (Category IN (
         'Doctorate_Degree', 'Masters_Degree', 'Bachelors_Degree', 'Special_Course', 'License_Examination', 
         'Additional_Units', 'Service_Years_Other_School', 'Service_Years_Asiatech', 'Service_Years_Industry', 
