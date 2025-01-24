@@ -49,8 +49,8 @@ $seminar_local = $_POST['Seminar_Local'] ?? 0;
 $membership_learned_society = $_POST['Membership_Learned_Society'] ?? 0;
 $membership_professional_organization = $_POST['Membership_Professional_Organization'] ?? 0;
 $membership_civic_social_economic_organization = $_POST['Membership_Civic_Social_Economic_Organization'] ?? 0;
-$honors_summa_cum_laude = $_POST['Honors_Summa_Cum_Laude'] ?? 0;
-$honors_cum_laude = $_POST['Honors_Cum_Laude'] ?? 0;
+$Honors_Summa_Laude = $_POST['Honors_Summa_Laude'] ?? 0;
+$Honors_Laude = $_POST['Honors_Laude'] ?? 0;
 $honors_honorable_mention = $_POST['Honors_Honorable_Mention'] ?? 0;
 $civic_service_first_level = $_POST['Civic_Service_First_level'] ?? 0;
 $civic_service_second_level = $_POST['Civic_Service_Second_level'] ?? 0;
@@ -97,8 +97,8 @@ $stmt = $conn->prepare("UPDATE Appraisal SET
     Membership_Learned_Society = ?, 
     Membership_Professional_Organization = ?, 
     Membership_Civic_Social_Economic_Organization = ?, 
-    Honors_Summa_Cum_Laude = ?, 
-    Honors_Cum_Laude = ?, 
+    Honors_Summa_Laude = ?, 
+    Honors_Laude = ?, 
     Honors_Honorable_Mention = ?, 
     Civic_Service_First_level = ?, 
     Civic_Service_Second_level = ?, 
@@ -143,8 +143,8 @@ $stmt->bind_param(
     $membership_learned_society,
     $membership_professional_organization,
     $membership_civic_social_economic_organization,
-    $honors_summa_cum_laude,
-    $honors_cum_laude,
+    $Honors_Summa_Laude,
+    $Honors_Laude,
     $honors_honorable_mention,
     $civic_service_first_level,
     $civic_service_second_level,

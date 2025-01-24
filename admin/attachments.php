@@ -9,21 +9,24 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Error";
 }
 
 // Handle form submission to update approval status
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['document_id']) && isset($_POST['action'])) {
     $document_id = intval($_POST['document_id']);
     $action = $_POST['action'] === 'approve' ? 1 : 0;
+    $approver_comments = $_POST['approver_comments'] ?? '';
 
-    $stmt = $conn->prepare("UPDATE Documents SET Approved = ? WHERE ID = ?");
-    $stmt->bind_param("ii", $action, $document_id);
+    $stmt = $conn->prepare("UPDATE Documents SET Approved = ?, Approver_Comments = ? WHERE ID = ?");
+    $stmt->bind_param("isi", $action, $approver_comments, $document_id);
     $stmt->execute();
     $stmt->close();
 }
 
 // Fetch documents data with staff names
-$sql = "SELECT d.ID, s.Name, d.Document_Name, d.Approved, d.Staff_ID  
+$sql = "SELECT d.ID as Document_ID, d.Document_Name, d.Approved, d.Approver_Comments, d.Uploader_Comments, d.Points, d.Custom_Points, d.Category, s.ID as Staff_ID, s.Name as Staff_Name
         FROM Documents d
         JOIN Staff s ON d.Staff_ID = s.ID";
 $result = $conn->query($sql);
@@ -150,6 +153,11 @@ $result = $conn->query($sql);
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>Filename</th>
+                                                        <th>Category</th>
+                                                        <th>Points</th>
+                                                        <th>Custom Points</th>
+                                                        <th>Approver Comments</th>
+                                                        <th>Uploader Comments</th>
                                                         <th>Approved</th>
                                                     </tr>
                                                 </thead>
@@ -159,15 +167,20 @@ $result = $conn->query($sql);
                                                         // Output data of each row
                                                         while ($row = $result->fetch_assoc()) {
                                                             echo "<tr>";
-                                                            echo "<td>" . htmlspecialchars($row["Name"]) . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Staff_Name"]) . "</td>";
                                                             echo "<td><a href='/EAP/uploads/" . $row["Staff_ID"] . "/" . htmlspecialchars($row["Document_Name"]) . "' download>" . htmlspecialchars($row["Document_Name"]) . "</a></td>";
+                                                            echo "<td>" . htmlspecialchars($row["Category"]) . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Points"]) . "</td>";
+                                                            echo "<td>" . ($row["Custom_Points"] ? "Yes" : "No") . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Approver_Comments"]) . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Uploader_Comments"]) . "</td>";
                                                             echo "<td>";
                                                             switch ($row["Approved"]) {
                                                                 case 0:
-                                                                    echo "False";
+                                                                    echo "No";
                                                                     break;
                                                                 case 1:
-                                                                    echo "True";
+                                                                    echo "Yes";
                                                                     break;
                                                                 case 2:
                                                                     echo "Pending";
@@ -177,11 +190,8 @@ $result = $conn->query($sql);
                                                             }
                                                             echo "</td>";
                                                             echo "<td>";
-                                                            echo '<form method="post" style="display:inline-block;">';
-                                                            echo '<input type="hidden" name="document_id" value="' . $row["ID"] . '">';
-                                                            echo '<button type="submit" name="action" value="approve" class="btn btn-success btn-sm">✔</button>';
-                                                            echo '<button type="submit" name="action" value="disapprove" class="btn btn-danger btn-sm">✖</button>';
-                                                            echo '</form>';
+                                                            echo '<button onclick="submitApproval(' . $row["Document_ID"] . ', \'approve\')" class="btn btn-success btn-sm">✔</button>';
+                                                            echo '<button onclick="submitApproval(' . $row["Document_ID"] . ', \'disapprove\')" class="btn btn-danger btn-sm">✖</button>';
                                                             echo "</td>";
                                                             echo "</tr>";
                                                         }
@@ -5276,7 +5286,30 @@ $result = $conn->query($sql);
         <script src="assets/js/custom/utilities/modals/users-search.js"></script>
         <!--end::Custom Javascript-->
         <!--end::Javascript-->
+
+        <form id="approvalForm" method="post">
+            <input type="hidden" name="document_id" id="document_id">
+            <input type="hidden" name="action" id="action">
+            <input type="hidden" name="approver_comments" id="approver_comments">
+        </form>
 </body>
 <!--end::Body-->
 
 </html>
+
+<script>
+    function submitApproval(documentId, action) {
+        document.getElementById('document_id').value = documentId;
+        document.getElementById('action').value = action;
+
+        if (action === 'disapprove') {
+            var comment = prompt("Please enter your comment:");
+            if (comment === null) {
+                return; // User cancelled the prompt
+            }
+            document.getElementById('approver_comments').value = comment;
+        }
+
+        document.getElementById('approvalForm').submit();
+    }
+</script>

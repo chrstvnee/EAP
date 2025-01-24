@@ -29,7 +29,7 @@ if (!$staff_id) {
 }
 
 // Fetch documents data for the staff ID
-$sql = "SELECT Document_Name, Approved FROM Documents WHERE Staff_ID = ?";
+$sql = "SELECT * FROM Documents WHERE Staff_ID = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $staff_id);
 $stmt->execute();
@@ -170,7 +170,12 @@ $result = $stmt->get_result();
                                                     <thead>
                                                         <tr>
                                                             <th>Filename</th>
+                                                            <th>Category</th>
                                                             <th>Approved</th>
+                                                            <th>Points</th>
+                                                            <th>Custom Points</th>
+                                                            <th>Approver Comments</th>
+                                                            <th>Uploader Comments</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -180,13 +185,14 @@ $result = $stmt->get_result();
                                                             while ($row = $result->fetch_assoc()) {
                                                                 echo "<tr>";
                                                                 echo "<td><a href='/EAP/uploads/" . $staff_id . "/" . htmlspecialchars($row["Document_Name"]) . "' download>" . htmlspecialchars($row["Document_Name"]) . "</a></td>";
+                                                                echo "<td>" . htmlspecialchars($row["Category"]) . "</td>";
                                                                 echo "<td>";
                                                                 switch ($row["Approved"]) {
                                                                     case 0:
-                                                                        echo "False";
+                                                                        echo "No";
                                                                         break;
                                                                     case 1:
-                                                                        echo "True";
+                                                                        echo "Yes";
                                                                         break;
                                                                     case 2:
                                                                         echo "Pending";
@@ -195,10 +201,14 @@ $result = $stmt->get_result();
                                                                         echo "Unknown";
                                                                 }
                                                                 echo "</td>";
+                                                                echo "<td>" . htmlspecialchars($row["Points"]) . "</td>";
+                                                                echo "<td>" . ($row["Custom_Points"] ? "Yes" : "No") . "</td>";
+                                                                echo "<td>" . htmlspecialchars($row["Approver_Comments"]) . "</td>";
+                                                                echo "<td>" . htmlspecialchars($row["Uploader_Comments"]) . "</td>";
                                                                 echo "</tr>";
                                                             }
                                                         } else {
-                                                            echo "<tr><td colspan='2'>No documents found</td></tr>";
+                                                            echo "<tr><td colspan='7'>No documents found</td></tr>";
                                                         }
                                                         $conn->close();
                                                         ?>
@@ -1610,10 +1620,76 @@ $result = $stmt->get_result();
                         </div>
                     </div>
                     <div class="modal-body">
-                        <form action="/EAP/uploads/upload.php" method="post" enctype="multipart/form-data">
+                        <form action="/EAP/faculty/upload.php" method="post" enctype="multipart/form-data">
                             <div class="mb-10">
-                                <label for="file" class="form-label">Choose file to upload:</label>
-                                <input type="file" name="file" id="file" class="form-control">
+                                <label for="file" class="form-label">Choose files to upload:</label>
+                                <input type="file" name="files[]" id="file" class="form-control" multiple>
+                            </div>
+                            <div class="mb-10">
+                                <label for="category" class="form-label">Category:</label>
+                                <select name="category" id="category" class="form-control">
+                                    <option value="Doctorate_Degree" selected>Doctorate Degree</option>
+                                    <option value="Masters_Degree">Masters Degree</option>
+                                    <option value="Bachelors_Degree">Bachelors Degree</option>
+                                    <option value="Special_Course">Special Course</option>
+                                    <option value="License_Examination">License Examination</option>
+                                    <option value="Additional_Units">Additional Units</option>
+                                    <option value="Service_Years_Other_School">Service Years: Other School</option>
+                                    <option value="Service_Years_Asiatech">Service Years: Asiatech</option>
+                                    <option value="Service_Years_Industry">Service Years: Industry</option>
+                                    <option value="Service_Years_Role_A">Service Years: President</option>
+                                    <option value="Service_Years_Role_B">Service Years:
+                                        Dean/Director/Administrator/Superintendent</option>
+                                    <option value="Service_Years_Role_C">Service Years:
+                                        Principal/Registrar/Supervisor/Head/Librarian/Custodian/Chariman/Adviser/Coordinator
+                                    </option>
+                                    <option value="Works_Original_Author">Works: Original Author</option>
+                                    <option value="Works_Co_Author">Works: Co Author</option>
+                                    <option value="Works_Reviewer">Works: Reviewer</option>
+                                    <option value="Works_Editor">Works: Editor</option>
+                                    <option value="Works_Compiler">Works: Compiler</option>
+                                    <option value="Works_Encoder">Works: Encoder</option>
+                                    <option value="Works_Programmer">Works: Programmer</option>
+                                    <option value="Paper_Publish_Count_International">Published papers: International
+                                    </option>
+                                    <option value="Paper_Publish_Count_National">Published papers: National</option>
+                                    <option value="Paper_Publish_Count_Local">Published papers: Local</option>
+                                    <option value="Training_Course_Years_International">Training Course Years:
+                                        International</option>
+                                    <option value="Training_Course_Years_National">Training Course Years: National
+                                    </option>
+                                    <option value="Training_Course_Years_Local">Training Course Years: Local</option>
+                                    <option value="Resource_Person_International">Resource Person: International
+                                    </option>
+                                    <option value="Resource_Person_National">Resource Person: National</option>
+                                    <option value="Resource_Person_Local">Resource Person: Local</option>
+                                    <option value="Seminar_International">Seminar: International</option>
+                                    <option value="Seminar_National">Seminar: National</option>
+                                    <option value="Seminar_Local">Seminar: Local</option>
+                                    <option value="Membership_Learned_Society">Membership: Learned Society</option>
+                                    <option value="Membership_Professional_Organization">Membership: Professional
+                                        Organization</option>
+                                    <option value="Membership_Civic_Social_Economic_Organization">Membership: Civic
+                                        Social Economic Organization</option>
+                                    <option value="Honors_Summa_Laude">Honors: Summa Cum Laude</option>
+                                    <option value="Honors_Laude">Honors: Cum Laude</option>
+                                    <option value="Honors_Honorable_Mention">Honors: Honorable Mention</option>
+                                    <option value="Civic_Service_First_level">Civic Service: First level</option>
+                                    <option value="Civic_Service_Second_level">Civic Service: Second level</option>
+                                    <option value="Civic_Service_Third_level">Civic Service: Third level</option>
+                                </select>
+                            </div>
+                            <div class="mb-10">
+                                <label for="comments" class="form-label">Comments (max 500 letters):</label>
+                                <textarea name="uploader_comments" id="uploader_comments" class="form-control"
+                                    maxlength="500"></textarea>
+                            </div>
+                            <div class="mb-10">
+                                <label for="custom_points" class="form-label">Custom Points:</label>
+                                <input type="hidden" name="custom_points" value="0">
+                                <input type="checkbox" name="custom_points" id="custom_points" class="form-check-input"
+                                    value="1" onclick="document.getElementById('points').disabled = !this.checked;">
+                                <input type="number" name="points" id="points" class="form-control" disabled>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Upload</button>

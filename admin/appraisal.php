@@ -474,18 +474,18 @@ $result = $conn->query($sql);
                                     name="Membership_Civic_Social_Economic_Organization">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
-                                <label class="form-check-label" for="Honors_Summa_Cum_Laude">
+                                <label class="form-check-label" for="Honors_Summa_Laude">
                                     Honors Summa Cum Laude
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Summa_Cum_Laude"
-                                    name="Honors_Summa_Cum_Laude">
+                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Summa_Laude"
+                                    name="Honors_Summa_Laude">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
-                                <label class="form-check-label" for="Honors_Cum_Laude">
+                                <label class="form-check-label" for="Honors_Laude">
                                     Honors Cum Laude
                                 </label>
-                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Cum_Laude"
-                                    name="Honors_Cum_Laude">
+                                <input class="form-check-input" type="checkbox" value="1" id="Honors_Laude"
+                                    name="Honors_Laude">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Honors_Honorable_Mention">

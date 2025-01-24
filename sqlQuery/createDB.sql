@@ -26,7 +26,23 @@ CREATE TABLE Documents(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Staff_ID INT,
     Document_Name VARCHAR(100) NOT NULL,
-    Approved INT NOT NULL DEFAULT 2
+    Approved INT NOT NULL DEFAULT 2,
+    Approver_Comments VARCHAR(500) DEFAULT "",
+    Uploader_Comments VARCHAR(500) DEFAULT "",
+    Points INT NOT NULL DEFAULT 0,
+    Custom_Points BOOLEAN NOT NULL DEFAULT 0,
+    Category VARCHAR(50) CHECK (Category IN (
+        'Doctorate_Degree', 'Masters_Degree', 'Bachelors_Degree', 'Special_Course', 'License_Examination', 
+        'Additional_Units', 'Service_Years_Other_School', 'Service_Years_Asiatech', 'Service_Years_Industry', 
+        'Service_Years_Role_A', 'Service_Years_Role_B', 'Service_Years_Role_C', 'Works_Original_Author', 
+        'Works_Co_Author', 'Works_Reviewer', 'Works_Editor', 'Works_Compiler', 'Works_Encoder', 'Works_Programmer', 
+        'Paper_Publish_Count_International', 'Paper_Publish_Count_National', 'Paper_Publish_Count_Local', 
+        'Training_Course_Years_International', 'Training_Course_Years_National', 'Training_Course_Years_Local', 
+        'Resource_Person_International', 'Resource_Person_National', 'Resource_Person_Local', 'Seminar_International', 
+        'Seminar_National', 'Seminar_Local', 'Membership_Learned_Society', 'Membership_Professional_Organization', 
+        'Membership_Civic_Social_Economic_Organization', 'Honors_Summa_Laude', 'Honors_Laude', 'Honors_Honorable_Mention', 
+        'Civic_Service_First_level', 'Civic_Service_Second_level', 'Civic_Service_Third_level'
+    ))
 );
 
 CREATE TABLE Appraisal(
@@ -67,8 +83,8 @@ CREATE TABLE Appraisal(
     Membership_Learned_Society BOOLEAN NOT NULL DEFAULT 0,
     Membership_Professional_Organization BOOLEAN NOT NULL DEFAULT 0,
     Membership_Civic_Social_Economic_Organization BOOLEAN NOT NULL DEFAULT 0,
-    Honors_Summa_Cum_Laude BOOLEAN NOT NULL DEFAULT 0,
-    Honors_Cum_Laude BOOLEAN NOT NULL DEFAULT 0,
+    Honors_Summa_Laude BOOLEAN NOT NULL DEFAULT 0,
+    Honors_Laude BOOLEAN NOT NULL DEFAULT 0,
     Honors_Honorable_Mention BOOLEAN NOT NULL DEFAULT 0,
     Civic_Service_First_level BOOLEAN NOT NULL DEFAULT 0,
     Civic_Service_Second_level BOOLEAN NOT NULL DEFAULT 0,
