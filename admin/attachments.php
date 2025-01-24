@@ -9,6 +9,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Error";
 }
 
 // Handle form submission to update approval status
@@ -20,10 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['document_id']) && isse
     $stmt->bind_param("ii", $action, $document_id);
     $stmt->execute();
     $stmt->close();
+} else {
+    echo "Error";
 }
 
 // Fetch documents data with staff names
-$sql = "SELECT *  
+$sql = "SELECT d.ID as Document_ID, d.Document_Name, d.Approved, d.Approver_Comments, d.Uploader_Comments, d.Points, d.Custom_Points, d.Category, s.ID as Staff_ID, s.Name as Staff_Name
         FROM Documents d
         JOIN Staff s ON d.Staff_ID = s.ID";
 $result = $conn->query($sql);
@@ -164,7 +168,7 @@ $result = $conn->query($sql);
                                                         // Output data of each row
                                                         while ($row = $result->fetch_assoc()) {
                                                             echo "<tr>";
-                                                            echo "<td>" . htmlspecialchars($row["Name"]) . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Staff_Name"]) . "</td>";
                                                             echo "<td><a href='/EAP/uploads/" . $row["Staff_ID"] . "/" . htmlspecialchars($row["Document_Name"]) . "' download>" . htmlspecialchars($row["Document_Name"]) . "</a></td>";
                                                             echo "<td>" . htmlspecialchars($row["Category"]) . "</td>";
                                                             echo "<td>" . htmlspecialchars($row["Points"]) . "</td>";
@@ -174,10 +178,10 @@ $result = $conn->query($sql);
                                                             echo "<td>";
                                                             switch ($row["Approved"]) {
                                                                 case 0:
-                                                                    echo "Yes";
+                                                                    echo "No";
                                                                     break;
                                                                 case 1:
-                                                                    echo "No";
+                                                                    echo "Yes";
                                                                     break;
                                                                 case 2:
                                                                     echo "Pending";
@@ -188,7 +192,7 @@ $result = $conn->query($sql);
                                                             echo "</td>";
                                                             echo "<td>";
                                                             echo '<form method="post" style="display:inline-block;">';
-                                                            echo '<input type="hidden" name="document_id" value="' . $row["ID"] . '">';
+                                                            echo '<input type="hidden" name="document_id" value="' . $row["Document_ID"] . '">';
                                                             echo '<button type="submit" name="action" value="approve" class="btn btn-success btn-sm">✔</button>';
                                                             echo '<button type="submit" name="action" value="disapprove" class="btn btn-danger btn-sm">✖</button>';
                                                             echo '</form>';

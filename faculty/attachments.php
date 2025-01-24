@@ -189,10 +189,10 @@ $result = $stmt->get_result();
                                                                 echo "<td>";
                                                                 switch ($row["Approved"]) {
                                                                     case 0:
-                                                                        echo "Yes";
+                                                                        echo "No";
                                                                         break;
                                                                     case 1:
-                                                                        echo "No";
+                                                                        echo "Yes";
                                                                         break;
                                                                     case 2:
                                                                         echo "Pending";
