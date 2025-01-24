@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['document_id']) && isse
 }
 
 // Fetch documents data with staff names
-$sql = "SELECT d.ID, s.Name, d.Document_Name, d.Approved, d.Staff_ID  
+$sql = "SELECT *  
         FROM Documents d
         JOIN Staff s ON d.Staff_ID = s.ID";
 $result = $conn->query($sql);
@@ -150,6 +150,11 @@ $result = $conn->query($sql);
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>Filename</th>
+                                                        <th>Category</th>
+                                                        <th>Points</th>
+                                                        <th>Custom Points</th>
+                                                        <th>Approver Comments</th>
+                                                        <th>Uploader Comments</th>
                                                         <th>Approved</th>
                                                     </tr>
                                                 </thead>
@@ -161,13 +166,18 @@ $result = $conn->query($sql);
                                                             echo "<tr>";
                                                             echo "<td>" . htmlspecialchars($row["Name"]) . "</td>";
                                                             echo "<td><a href='/EAP/uploads/" . $row["Staff_ID"] . "/" . htmlspecialchars($row["Document_Name"]) . "' download>" . htmlspecialchars($row["Document_Name"]) . "</a></td>";
+                                                            echo "<td>" . htmlspecialchars($row["Category"]) . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Points"]) . "</td>";
+                                                            echo "<td>" . ($row["Custom_Points"] ? "Yes" : "No") . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Approver_Comments"]) . "</td>";
+                                                            echo "<td>" . htmlspecialchars($row["Uploader_Comments"]) . "</td>";
                                                             echo "<td>";
                                                             switch ($row["Approved"]) {
                                                                 case 0:
-                                                                    echo "False";
+                                                                    echo "Yes";
                                                                     break;
                                                                 case 1:
-                                                                    echo "True";
+                                                                    echo "No";
                                                                     break;
                                                                 case 2:
                                                                     echo "Pending";
