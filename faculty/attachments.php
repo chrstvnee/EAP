@@ -1620,7 +1620,7 @@ $result = $stmt->get_result();
                         </div>
                     </div>
                     <div class="modal-body">
-                        <form action="/EAP/uploads/upload.php" method="post" enctype="multipart/form-data">
+                        <form action="/EAP/faculty/upload.php" method="post" enctype="multipart/form-data">
                             <div class="mb-10">
                                 <label for="file" class="form-label">Choose files to upload:</label>
                                 <input type="file" name="files[]" id="file" class="form-control" multiple>
