@@ -17,13 +17,12 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['document_id']) && isset($_POST['action'])) {
     $document_id = intval($_POST['document_id']);
     $action = $_POST['action'] === 'approve' ? 1 : 0;
+    $approver_comments = $_POST['approver_comments'] ?? '';
 
-    $stmt = $conn->prepare("UPDATE Documents SET Approved = ? WHERE ID = ?");
-    $stmt->bind_param("ii", $action, $document_id);
+    $stmt = $conn->prepare("UPDATE Documents SET Approved = ?, Approver_Comments = ? WHERE ID = ?");
+    $stmt->bind_param("isi", $action, $approver_comments, $document_id);
     $stmt->execute();
     $stmt->close();
-} else {
-    echo "Error";
 }
 
 // Fetch documents data with staff names
@@ -191,11 +190,8 @@ $result = $conn->query($sql);
                                                             }
                                                             echo "</td>";
                                                             echo "<td>";
-                                                            echo '<form method="post" style="display:inline-block;">';
-                                                            echo '<input type="hidden" name="document_id" value="' . $row["Document_ID"] . '">';
-                                                            echo '<button type="submit" name="action" value="approve" class="btn btn-success btn-sm">✔</button>';
-                                                            echo '<button type="submit" name="action" value="disapprove" class="btn btn-danger btn-sm">✖</button>';
-                                                            echo '</form>';
+                                                            echo '<button onclick="submitApproval(' . $row["Document_ID"] . ', \'approve\')" class="btn btn-success btn-sm">✔</button>';
+                                                            echo '<button onclick="submitApproval(' . $row["Document_ID"] . ', \'disapprove\')" class="btn btn-danger btn-sm">✖</button>';
                                                             echo "</td>";
                                                             echo "</tr>";
                                                         }
@@ -5290,7 +5286,30 @@ $result = $conn->query($sql);
         <script src="assets/js/custom/utilities/modals/users-search.js"></script>
         <!--end::Custom Javascript-->
         <!--end::Javascript-->
+
+        <form id="approvalForm" method="post">
+            <input type="hidden" name="document_id" id="document_id">
+            <input type="hidden" name="action" id="action">
+            <input type="hidden" name="approver_comments" id="approver_comments">
+        </form>
 </body>
 <!--end::Body-->
 
 </html>
+
+<script>
+    function submitApproval(documentId, action) {
+        document.getElementById('document_id').value = documentId;
+        document.getElementById('action').value = action;
+
+        if (action === 'disapprove') {
+            var comment = prompt("Please enter your comment:");
+            if (comment === null) {
+                return; // User cancelled the prompt
+            }
+            document.getElementById('approver_comments').value = comment;
+        }
+
+        document.getElementById('approvalForm').submit();
+    }
+</script>
