@@ -1686,8 +1686,9 @@ $result = $stmt->get_result();
                             </div>
                             <div class="mb-10">
                                 <label for="custom_points" class="form-label">Custom Points:</label>
+                                <input type="hidden" name="custom_points" value="0">
                                 <input type="checkbox" name="custom_points" id="custom_points" class="form-check-input"
-                                    onclick="document.getElementById('points').disabled = !this.checked;">
+                                    value="1" onclick="document.getElementById('points').disabled = !this.checked;">
                                 <input type="number" name="points" id="points" class="form-control" disabled>
                             </div>
                             <div class="text-center">
