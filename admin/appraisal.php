@@ -298,21 +298,21 @@ $result = $conn->query($sql);
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Role_A">
-                                    Service Years Role A
+                                    Service Years President
                                 </label>
                                 <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Role_A"
                                     name="Service_Years_Role_A">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Role_B">
-                                    Service Years Role B
+                                    Service Years Dean/Director/Administrator School Superintendent
                                 </label>
                                 <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Role_B"
                                     name="Service_Years_Role_B">
                             </div>
                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                 <label class="form-check-label" for="Service_Years_Role_C">
-                                    Service Years Role C
+                                    Service Years Principal/Registrar/Supervisor/Head of Unit/Librarian/Property Custodian/Department Chairman/Adviser/Coordinator
                                 </label>
                                 <input class="form-check-input" type="checkbox" value="1" id="Service_Years_Role_C"
                                     name="Service_Years_Role_C">

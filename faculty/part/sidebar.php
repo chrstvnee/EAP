@@ -9,8 +9,7 @@
 			<img alt="Logo" src="assets/media/logos/upot.png" class="h-35px app-sidebar-logo-minimize" />
 		</a>
 		<span
-			class="sidebar-text h-35 app-sidebar-logo-default px-6 min-w-500px fs-4 fw-bold text-start text-gray-700">UPOT:
-			Employee<br>&nbsp;&nbsp;Appraisal System</span>
+			class="sidebar-text h-35 app-sidebar-logo-default px-6 min-w-500px fs-4 fw-bold text-start text-gray-700">Employee Appraisal <br> System</span>
 		<div id="kt_app_sidebar_toggle"
 			class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-30px w-30px position-absolute top-50 start-100 translate-middle rotate"
 			data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"

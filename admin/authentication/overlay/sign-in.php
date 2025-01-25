@@ -72,13 +72,11 @@ License: For each use you must have a valid license purchased only from above li
 						src="assets/media/auth/agency-dark.png" alt="" />
 					<!--end::Image-->
 					<!--begin::Title-->
-					<h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7">Unlocking Potential:A Web-Based Employee
+					<h1 class="text-black-800 fs-2qx fw-bold text-center mb-7" style="color:black;">Unlocking Potential:A <br>Web-Based Employee
 						Appraisal System</h1>
 					<!--end::Title-->
 					<!--begin::Text-->
-					<div class="text-gray-600 fs-base text-center fw-semibold">Your performance,growth and feedback
-						streamlined and accesible. Log in to track your achievements
-						<br />review evaluations, and engage with your professional development.
+					<div class="text-gray-600 fs-base text-center fw-semibold">Your performance, growth and accesible.
 						<a href="#" class="opacity-75-hover text-primary me-1"></a>
 						<br />Let's take the first step toward excellence together.
 					</div>

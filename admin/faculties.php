@@ -55,6 +55,7 @@ $result = $conn->query($sql);
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 	<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
 
 
 	<script src="script.js"></script>

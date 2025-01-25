@@ -9,8 +9,7 @@
 			<img alt="Logo" src="assets/media/logos/upot.png" class="h-35px app-sidebar-logo-minimize" />
 		</a>
 		<span
-			class="sidebar-text h-35 app-sidebar-logo-default px-6 min-w-500px fs-4 fw-bold text-start text-gray-700">UPOT:
-			Employee<br>&nbsp;&nbsp;Appraisal System</span>
+			class="sidebar-text h-35 app-sidebar-logo-default px-6 min-w-500px fs-4 fw-bold text-start text-gray-700">Employee Appraisal <br> System</span>
 		<div id="kt_app_sidebar_toggle"
 			class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-30px w-30px position-absolute top-50 start-100 translate-middle rotate"
 			data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
@@ -63,20 +62,27 @@
 						<div class="menu-item pt-5">
 							<div class="menu-content">
 								<!-- BEGIN TITLE -->
-								<div class="menu-heading fw-bold text-uppercase fs-7">Check</div>
+								<div class="menu-heading fw-bold text-uppercase fs-7">Employees</div>
 							</div>
 						</div>
 
 						<a href="admin/faculties.php" class="menu-link"> <!-- WORKING BUTTON / HREF LINK INTO ITSELF-->
 							<span class="menu-icon">
-								<i class="fa-duotone fa-solid fa-grid-2 fs-1"></i>
+							<i class="fa-duotone fa-solid fa-users fs-1"></i>
 							</span>
 							<span class="menu-title">Faculties</span>
 						</a>
 
+						<div class="menu-item pt-5">
+							<div class="menu-content">
+								<!-- BEGIN TITLE -->
+								<div class="menu-heading fw-bold text-uppercase fs-7">Evaluation</div>
+							</div>
+						</div>
+
 						<a href="admin/appraisal.php" class="menu-link"> <!-- WORKING BUTTON / HREF LINK INTO ITSELF-->
 							<span class="menu-icon">
-								<i class="fa-duotone fa-solid fa-grid-2 fs-1"></i>
+							<i class="fa-duotone fa-solid fa-ballot-check fs-1"></i>
 							</span>
 							<span class="menu-title">Appraisal</span>
 						</a>
