@@ -56,10 +56,7 @@ $conn->close();
                 </div>
                 <!--end::Col 2-->
                 <!--begin::Col 3-->
-                <div class="col-md-4 text-center">
-                    <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">50</span>
-                    <span class="text-gray-500 pt-1 fw-semibold fs-6">Units</span>
-                </div>
+                
                 <!--end::Col 3-->
             </div>
             <!--end::Card body-->
