@@ -82,10 +82,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             $zip->close();
 
+            $appraisalPointsFile = $_SERVER['DOCUMENT_ROOT'] . '/EAP/admin/data/appraisalPoints.json'; // Update the path as needed
+            $appraisalPointsData = json_decode(file_get_contents($appraisalPointsFile), true);
+
             $category = $_POST['category'] ?? "Doctorate_Degree";
             $uploader_comments = $_POST['uploader_comments'] ?? "None";
             $custom_points = $_POST['custom_points'] ?? 0;
             $points = $_POST['points'] ?? 0;
+
+            // If custom points is false, use the points from the appraisalPoints.json file
+            if ($custom_points == 0) {
+                $points = $appraisalPointsData[$category];
+            }
 
             // Insert into Documents table
             $document_name = basename($zip_file);
