@@ -296,6 +296,7 @@ $result = $conn->query($sql);
         $('#kt_modal_edit').on('show.bs.modal', function (event) {
             const button = $(event.relatedTarget); // Button that triggered the modal
             const id = button.data('id'); // Extract info from data-* attributes
+            const name = button.data('name');
             console.log("Loading record ID: " + id);
             // Fetch the documents data where approved value is 1
             fetch(`admin/appraisal/getAppraisalRecord.php?id=${id}`)
@@ -319,7 +320,7 @@ $result = $conn->query($sql);
                     });
                     // Add a label showing total points
                     const totalPointsLabel = document.createElement('div');
-                    totalPointsLabel.innerHTML = `<strong>Total Points: ${totalPoints}</strong>`;
+                    totalPointsLabel.innerHTML = `<strong>${name} Total Points: ${totalPoints}</strong>`;
                     tableBody.appendChild(totalPointsLabel);
                 });
         });
